@@ -9,6 +9,8 @@ export const H1 = styled.h1`
   font-family: Afterglow;
   font-style: normal;
   margin: 0;
+  margin-block-start: 0;
+  margin-block-end: 0;
   ${cursor.default}
   ${textAlign.center}
 

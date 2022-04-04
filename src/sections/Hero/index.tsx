@@ -30,7 +30,7 @@ export const Hero: React.FC<Props> = (props) => {
         <NextImage
           width="510px"
           height="560px"
-          src={'/images/yoga-pose-hero-1.png'}
+          src={'/images/yoga-pose-hero-2.png'}
           objectFit="cover"
           layout="responsive"
         />
@@ -44,7 +44,7 @@ Hero.defaultProps = {
   subtitle:
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In id risus nec turpis feugiat ornare eu non sem. Nam molestie eleifend dui, id tristique lectus.',
   cta: {
-    children: 'Find your nearest hub',
+    children: 'Learn More',
     onClick: () => scrollTo(sectionIds.locations),
   },
 }

@@ -20,7 +20,7 @@ export const buttonStyles = css<Props>`
     return css`
       border: 2px solid ${props.theme.colors.primary};
       background-color: ${props.theme.colors.primary};
-      color: ${props.theme.colors.BridalHealth};
+      color: ${props.theme.colors.Black};
       ${props.isLoading &&
       css`
         padding: 0;

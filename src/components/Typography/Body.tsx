@@ -4,6 +4,7 @@ import { cursor } from 'theme'
 
 interface Props {
   bold?: boolean
+  font?: string
   variant?: 'sm' | 'md' | 'lg'
 }
 
@@ -30,7 +31,7 @@ export const Body = styled.p<Props>`
         : '1.2rem'
 
     return css`
-      font-family: 'Poppins';
+      font-family: ${props.font};
       font-size: ${size};
       font-weight: ${fontWeight};
       line-height: ${lineHeight};
@@ -41,4 +42,5 @@ export const Body = styled.p<Props>`
 Body.defaultProps = {
   bold: false,
   variant: 'lg',
+  font: 'Poppins',
 }
