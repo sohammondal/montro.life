@@ -1,0 +1,22 @@
+{
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "editor.formatOnSave": true, // Tell VSCode to format files on save
+  "editor.defaultFormatter": "esbenp.prettier-vscode", // Tell VSCode to use Prettier as default file formatter
+  "cSpell.words": [
+    "Avenir",
+    "boxshadow",
+    "curriculars",
+    "Demi",
+    "Firstname",
+    "formik",
+    "HJID",
+    "HJSV",
+    "hotjar",
+    "Lastname",
+    "Openhouse",
+    "smoothscroll",
+    "Swipeable"
+  ]
+}
