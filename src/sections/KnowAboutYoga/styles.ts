@@ -29,8 +29,7 @@ export const containerStyles = {
       ${flexRowCenter}
       justify-content: space-evenly;
 
-      height: 80vh;
-      padding-bottom: 150px;
+      height: 70vh;
     }
   `,
 }

@@ -59,14 +59,6 @@ export const KnowAboutYoga = () => {
           <Button>Know More</Button>
         </ContentBox>
       </Container>
-      <Waves
-        {...wavesProps}
-        fill={colors.BridalHealth}
-        style={{
-          display: 'flex',
-          backgroundColor: colors.Caramel,
-        }}
-      />
     </>
   )
 }
