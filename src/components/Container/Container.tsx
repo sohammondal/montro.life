@@ -33,7 +33,7 @@ export const OuterContainer = styled.section<IOuterContainer>`
       ? colors.BridalHealth
       : colors.BridalHealth};
 
-    ${media.tablet} {
+    ${media.tabletPortrait} {
       padding: ${spacings['44']} 0;
     }
 

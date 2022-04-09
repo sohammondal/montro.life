@@ -5,10 +5,10 @@ import { flexColCenter, flexRow, media, textAlign } from 'theme'
 
 export const containerStyles = {
   outer: css`
-    min-height: 90vh;
+    min-height: 100vh;
     padding: 0 2rem;
 
-    ${media.tablet} {
+    ${media.tabletPortrait} {
       ${flexColCenter}
       min-height: 50vh;
     }
@@ -40,7 +40,7 @@ export const MediaBox = styled.div`
   width: 100%;
   padding-bottom: 20px;
 
-  ${media.tablet} {
+  ${media.tabletPortrait} {
   }
 
   ${media.desktop} {
@@ -61,7 +61,7 @@ export const ContentBox = styled.div`
 
   ${flexColCenter}
 
-  ${media.tablet} {
+  ${media.tabletPortrait} {
     padding: 0;
   }
 

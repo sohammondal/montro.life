@@ -38,8 +38,9 @@ const customMediaQuery = (
 
 export const media = {
   custom: customMediaQuery,
-  desktop: customMediaQuery(1024),
-  tablet: customMediaQuery(768),
+  desktop: customMediaQuery(1366),
+  tabletLandscape: customMediaQuery(1024),
+  tabletPortrait: customMediaQuery(768),
   phone: customMediaQuery(576),
 }
 
@@ -56,19 +57,6 @@ export const cursor = {
   default: css`
     cursor: default;
   `,
-}
-
-const customBorderRadius = (
-  radius: number | string = 24,
-  unit: 'px' | '%' = 'px'
-): string => `border-radius: ${radius}${unit};`
-
-export const borderRadius = {
-  custom: customBorderRadius,
-  circle: customBorderRadius(100, '%'),
-  '0': customBorderRadius(0),
-  '27': customBorderRadius(27),
-  '24': customBorderRadius(24),
 }
 
 export const display = {
@@ -101,19 +89,34 @@ export const commonSubtitleStyles = css`
   `}
 `
 
-/* export const scrollbarStyles = css`
+export const hw = {
+  full: css`
+    height: 100%;
+    width: 100%;
+  `,
+  half: css`
+    height: 50%;
+    width: 50%;
+  `,
+  custom: (h = 20, unit = '%', w = 0) => css`
+    height: ${h}${unit};
+    width: ${w || h}${unit};
+  `,
+}
+
+export const scrollbarStyles = css`
   scrollbar-width: 0.25em;
-  scrollbar-track-color: ${(props) => props.theme.colors['6A6767']};
-  scrollbar-face-color: ${(props) => props.theme.colors.FFFFFF};
+  scrollbar-track-color: ${(props) => props.theme.colors.WestSide};
+  scrollbar-face-color: ${(props) => props.theme.colors.BridalHealth};
 
   &::-webkit-scrollbar {
     width: 0.25em;
-    background: ${(props) => props.theme.colors['6A6767']};
-    ${borderRadius.custom(8)};
+    background-color: ${(props) => props.theme.colors.BridalHealth};
+    border-radius: 8px;
   }
 
   &::-webkit-scrollbar-thumb {
-    background-color: ${(props) => props.theme.colors.FFFFFF};
-    ${borderRadius.custom(8)}
+    background-color: ${(props) => props.theme.colors.BridalHealth};
+    border-radius: 8px;
   }
-` */
+`

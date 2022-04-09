@@ -19,21 +19,18 @@ export const containerStyles = {
     ${flexRowCenter}
     justify-content: space-between;
 
-    ${media.tablet} {
+    ${media.tabletPortrait} {
       justify-content: center;
     }
   `,
 }
 
 export const BlobWrapper = styled.div`
-  ${display.none}
+  position: absolute;
+  width: 21vw;
+  height: 20vw;
 
   ${media.desktop} {
-    ${display.block}
-    width: 21vw;
-    height: 20vw;
-    position: absolute;
-
     top: -10%;
     left: -10%;
   }
@@ -41,22 +38,24 @@ export const BlobWrapper = styled.div`
 
 export const LogoWrapper = styled.div`
   width: 20%;
+  position: absolute;
+  left: 5px;
+
   svg {
-    fill: ${(props) => props.theme.colors.primary};
+    fill: ${(props) => props.theme.colors.Black};
   }
 
   ${media.desktop} {
-    position: absolute;
     top: 15px;
     left: -20px;
     width: 11%;
-    svg {
-      fill: ${(props) => props.theme.colors.Black};
-    }
   }
 `
 
 export const Nav = styled.nav`
+  position: absolute;
+  right: 0;
+
   .hamburger-menu {
     margin: 0 20px;
   }

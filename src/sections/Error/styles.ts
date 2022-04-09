@@ -20,7 +20,7 @@ export const containerStyles = {
     ${flexRowCenter}
     ${flexWrap.yes}
 
-    ${media.tablet} {
+    ${media.tabletPortrait} {
       ${flexWrap.no}
     }
   `,
@@ -30,7 +30,7 @@ export const imageStyles = css`
   min-width: 300px;
   max-width: 500px;
 
-  ${media.tablet} {
+  ${media.tabletPortrait} {
     flex: 1;
   }
 `
@@ -40,7 +40,7 @@ export const Content = styled.div`
   flex:1;
   max-width: 400px;
 
-  ${media.tablet} {
+  ${media.tabletPortrait} {
     ${display.block}
     margin-left: ${(props) => props.theme.spacings['44']};
   }
@@ -55,7 +55,7 @@ export const bodyStyles = css`
   margin: ${(props) => props.theme.spacings['22']} 0;
   ${textAlign.center}
 
-  ${media.tablet} {
+  ${media.tabletPortrait} {
     ${textAlign.left}
   }
 `

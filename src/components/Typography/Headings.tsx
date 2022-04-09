@@ -61,7 +61,7 @@ export const H4 = styled.h4<{ bold?: boolean }>`
   ${cursor.default}
   ${textAlign.center}
 
-  ${media.tablet} {
+  ${media.tabletPortrait} {
     font-size: 1.15rem;
     line-height: 1.5rem;
   }

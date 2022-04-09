@@ -1,30 +1,39 @@
 import styled from 'styled-components'
 
-import { flexCol, flexColCenter, flexRowCenter, media } from 'theme'
+import { flexColCenter } from 'theme'
 
 export const Container = styled.section`
   position: relative;
-  .top-blob,
-  .bottom-blob {
+  height: 150vh;
+
+  .blob {
+    display: flex !important;
     position: absolute;
     z-index: 1;
-
-    ${media.custom(1920)} {
-      transform: scaleX(2);
+    svg {
+      background-color: transparent;
     }
   }
 
   .top-blob {
     top: -1px;
+    transform: rotate(180deg);
   }
 
   .bottom-blob {
     bottom: -1px;
   }
+
+  .react-parallax {
+    height: 100%;
+    .react-parallax-content {
+      height: 100%;
+    }
+  }
 `
 
 export const Content = styled.div`
   width: 100%;
-  height: 120vh;
+  height: 100%;
   ${flexColCenter}
 `

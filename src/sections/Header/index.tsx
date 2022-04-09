@@ -32,7 +32,7 @@ export const Header = () => {
       <Container {...containerStyles}>
         <BlobWrapper>
           <NextImage
-            src={'/images/blob.png'}
+            src={'/images/blobs/logo-blob.png'}
             layout="fill"
             objectFit={'cover'}
             className="blob-bg"

@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components'
 
-import { borderRadius, cursor } from 'theme'
+import { cursor } from 'theme'
 
 import { Props } from './types'
 
@@ -9,7 +9,7 @@ export const buttonStyles = css<Props>`
   font-weight: unset;
   ${cursor.pointer}
   border: 0;
-  ${borderRadius['27']}
+  border-radius: 27px;
   padding: 0px 20px;
   font-size: 1rem;
   line-height: 23px;
@@ -18,8 +18,8 @@ export const buttonStyles = css<Props>`
 
   ${(props) => {
     return css`
-      border: 2px solid ${props.theme.colors.primary};
-      background-color: ${props.theme.colors.primary};
+      border: 2px solid ${props.theme.colors.Caramel};
+      background-color: ${props.theme.colors.Caramel};
       color: ${props.theme.colors.Black};
       ${props.isLoading &&
       css`
@@ -28,7 +28,7 @@ export const buttonStyles = css<Props>`
       `};
       &:hover {
         background-color: ${props.theme.colors.BridalHealth};
-        color: ${props.theme.colors.primary};
+        color: ${props.theme.colors.Black};
       }
     `
   }}

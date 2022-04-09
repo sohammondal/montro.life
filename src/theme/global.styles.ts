@@ -45,7 +45,7 @@ export const GlobalStyles = createGlobalStyle`
             height: 2px;
             bottom: -2px;
             left: 0;
-            background-color: ${colors.primary};
+            background-color: ${colors.Caramel};
             visibility: hidden;
             transform: scaleX(0);
             transition: all 0.3s ease-in-out 0s; 

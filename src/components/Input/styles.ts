@@ -1,7 +1,5 @@
 import styled, { css } from 'styled-components'
 
-import { borderRadius } from 'theme'
-
 export const Wrapper = styled.div``
 
 export const StyledInput = styled.input`
@@ -10,7 +8,7 @@ export const StyledInput = styled.input`
   background: ${(props) => props.theme.colors.White};
   border: 1px solid ${(props) => props.theme.colors.primary};
   box-sizing: border-box;
-  ${borderRadius.custom(34)}
+  border-radius: 34px;
   font-family: AvenirReg;
   font-style: normal;
   font-weight: normal;

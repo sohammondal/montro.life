@@ -1,15 +1,15 @@
 import styled, { css } from 'styled-components'
 
+import { cursor, display, flexCol, hw, media } from 'theme'
+
 export const Button = styled.button<{ $open: boolean }>`
-  display: flex;
-  flex-direction: column;
+  ${flexCol}
   align-items: flex-end;
   justify-content: space-around;
-  width: 2rem;
-  height: 2rem;
+  ${hw.custom(2, 'rem')}
   background: transparent;
   border: none;
-  cursor: pointer;
+  ${cursor.pointer}
   padding: 0;
   z-index: 10;
   transform: scale(0.8);
@@ -18,7 +18,7 @@ export const Button = styled.button<{ $open: boolean }>`
     props.$open &&
     css`
       position: absolute;
-      top: 25px;
+      top: -15px;
       right: 15px;
     `}
 
@@ -36,8 +36,7 @@ export const Button = styled.button<{ $open: boolean }>`
 
     ${({ $open }) => {
       return css`
-        background: ${(props) =>
-          $open ? props.theme.colors.White : props.theme.colors.primary};
+        background: ${(props) => props.theme.colors.Black};
 
         :first-child {
           transform: ${$open ? 'rotate(45deg)' : 'rotate(0)'};
@@ -53,9 +52,9 @@ export const Button = styled.button<{ $open: boolean }>`
           transform: ${$open ? 'rotate(-45deg)' : 'rotate(0)'};
         }
 
-        @media only screen and (min-width: 1024px) {
+        ${media.tabletLandscape} {
           transition: unset;
-          display: ${$open ? 'none' : 'flex'};
+          ${$open ? display.none : display.flex};
         }
       `
     }}

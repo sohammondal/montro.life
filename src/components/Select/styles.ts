@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components'
 
-import { borderRadius, media } from 'theme'
+import { media } from 'theme'
 
 export const Wrapper = styled.div`
   position: relative;
@@ -15,7 +15,7 @@ export const LoaderWrapper = styled.span`
 export const StyledSelect = styled.select<{ isLoading?: boolean }>`
   height: 40px;
   border: 1px solid ${(props) => props.theme.colors.primary};
-  ${borderRadius['27']}
+  border-radius: 27px;
   padding: 0px 20px;
   width: 100%;
   font-family: AvenirReg;
@@ -33,7 +33,7 @@ export const StyledSelect = styled.select<{ isLoading?: boolean }>`
     outline: none;
     color: ${(props) => props.theme.colors.Black};
   }
-  ${media.tablet} {
+  ${media.tabletPortrait} {
     background-position-x: 97%;
     background-position-y: 17px;
   }

@@ -1,17 +1,9 @@
 import styled, { css } from 'styled-components'
 
-import {
-  borderRadius,
-  cursor,
-  display,
-  flexCol,
-  flexColCenter,
-  flexWrap,
-  media,
-} from 'theme'
+import { cursor, display, flexCol, flexColCenter, flexWrap, media } from 'theme'
 
 export const outerContainerStyles = css`
-  ${media.tablet} {
+  ${media.tabletPortrait} {
     padding-bottom: ${(props) => props.theme.spacings['132']};
   }
 `
@@ -20,7 +12,7 @@ export const Row = styled.div`
   margin-top: ${(props) => props.theme.spacings['22']};
   ${flexCol}
 
-  ${media.tablet} {
+  ${media.tabletPortrait} {
     flex-direction: row;
     justify-content: space-between;
     ${flexWrap.no}
@@ -39,7 +31,7 @@ export const Cols = {
     order: 3;
     margin-top: ${(props) => props.theme.spacings['22']};
 
-    ${media.tablet} {
+    ${media.tabletPortrait} {
       margin-top: 0;
       order: 2;
     }
@@ -47,14 +39,14 @@ export const Cols = {
   Three: styled.div`
     order: 4;
 
-    ${media.tablet} {
+    ${media.tabletPortrait} {
       order: 3;
     }
   `,
   Four: styled.div`
     order: 5;
 
-    ${media.tablet} {
+    ${media.tabletPortrait} {
       order: 4;
     }
   `,
@@ -62,7 +54,7 @@ export const Cols = {
     order: 2;
     margin-top: ${(props) => props.theme.spacings['44']};
 
-    ${media.tablet} {
+    ${media.tabletPortrait} {
       margin-top: 0;
       order: 5;
     }
@@ -70,7 +62,7 @@ export const Cols = {
   headingStyles: css`
     margin-bottom: ${(props) => props.theme.spacings['11']};
 
-    ${media.tablet} {
+    ${media.tabletPortrait} {
       margin-bottom: ${(props) => props.theme.spacings['22']};
       ${display.block}
     }
@@ -87,7 +79,7 @@ export const Socials = {
     ${display.flex}
   `,
   Btn: styled.a`
-    ${borderRadius.circle}
+    border-radius: 50%;
     position: relative;
     ${flexColCenter}
     width: 35px;
@@ -129,7 +121,7 @@ export const Newsletter = styled.div`
   ${display.flex}
   margin-top: ${(props) => props.theme.spacings['18']};
 
-  ${media.tablet} {
+  ${media.tabletPortrait} {
     ${flexWrap.yes}
   }
 

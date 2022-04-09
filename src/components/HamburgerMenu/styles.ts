@@ -5,8 +5,8 @@ import { flexColCenter } from 'theme'
 export const Menu = styled.div`
   width: 100%;
   ${flexColCenter}
-  background-color: ${(props) => props.theme.colors.primary};
-  color: white;
+  background-color: ${(props) => props.theme.colors.Caramel};
+  color: ${(props) => props.theme.colors.Black};
 
   @media only screen and (min-width: 1024px) {
     width: 30%;
@@ -20,8 +20,6 @@ export const MenuItem = styled.div`
 `
 
 export const Overlay = styled.div<{ $open: boolean }>`
-  /* width: 100vw;
-  height: 100vh; */
   position: fixed;
   top: 0;
   right: 0;
