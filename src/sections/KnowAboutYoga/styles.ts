@@ -23,13 +23,13 @@ export const containerStyles = {
   `,
   innerStyles: css`
     padding: 0;
-    padding-bottom: 75px;
 
     ${media.desktop} {
       ${flexRowCenter}
       justify-content: space-evenly;
 
       height: 70vh;
+      padding-bottom: 60px;
     }
   `,
 }
@@ -76,6 +76,11 @@ export const YogaPoses = {
       ${flexRowCenter}
       justify-content: flex-start;
       width: 227px;
+      margin-bottom: 1rem;
+
+      ${media.tabletLandscape} {
+        margin-bottom: 0;
+      }
     `,
     Illustration: styled.div`
       position: relative;

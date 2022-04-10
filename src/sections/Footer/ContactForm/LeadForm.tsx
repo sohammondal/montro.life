@@ -19,7 +19,7 @@ export const LeadForm: React.FC<FormProps> = (props) => {
       <Input placeholder="Name" {...getInputProps('name')} />
       <Input
         placeholder="Phone Number"
-        maxLength={15}
+        maxLength={10}
         {...getInputProps('phone_number')}
       />
       <Input placeholder="Email" {...getInputProps('email')} />

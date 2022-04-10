@@ -52,11 +52,11 @@ export const H3 = styled.h3`
   }
 `
 
-export const H4 = styled.h4<{ bold?: boolean }>`
+export const H4 = styled.h4<{ bold?: boolean; font?: string }>`
   font-size: 1rem;
   line-height: 1.4rem;
   font-weight: ${(props) => (props.bold ? 600 : 'normal')};
-  font-family: Poppins;
+  font-family: ${(props) => props.font || 'Poppins'};
   margin: 0;
   ${cursor.default}
   ${textAlign.center}

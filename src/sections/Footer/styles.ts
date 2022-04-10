@@ -88,6 +88,7 @@ export const FooterContent = {
         font-weight: normal;
         margin-bottom: 10px;
         font-family: Poppins;
+        letter-spacing: unset;
 
         ${flexRowCenter}
         justify-content: flex-start;
@@ -111,6 +112,7 @@ export const FooterContent = {
       .horizontal-list {
         ${display.flex}
         margin-top: 15px;
+        letter-spacing: unset;
 
         a {
           background-color: ${(props) => props.theme.colors.BridalHealth};

@@ -72,6 +72,9 @@ export const display = {
   grid: css`
     display: grid;
   `,
+  inlineBlock: css`
+    display: inline-block;
+  `,
 }
 
 export const flexWrap = {

@@ -8,8 +8,10 @@ export const Copyright = () => {
       <div>
         <small>
           Copyright © {new Date().getFullYear()} Montro Health & Wellness.{' '}
-          <br />
-          All rights reserved.
+          <span>
+            <br />
+            All rights reserved.
+          </span>
         </small>
       </div>
       <div>

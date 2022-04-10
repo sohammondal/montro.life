@@ -9,10 +9,10 @@ import {
 } from 'helpers'
 
 const errorMessages = {
-  name: `Please enter your full name. Eg. John Doe`,
-  number: 'Please enter a valid phone number. Eg. 7003355200',
-  email: 'Please enter a valid email. Eg. john.doe@gmail.com',
-  message: `Please enter your message`,
+  name: `Enter your full name. Eg. John Doe`,
+  number: 'Enter a valid phone number. Eg. 7003355200',
+  email: 'Enter a valid email. Eg. john.doe@gmail.com',
+  message: `Enter your message`,
 }
 
 export const ClubFormSchema = Yup.object({

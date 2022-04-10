@@ -4,6 +4,8 @@ import { display, flexColCenter, media } from 'theme'
 
 export const FormContainer = styled.div`
   ${flexColCenter}
+  padding: 0 1%;
+  width: 100%;
 
   .input-wrapper {
     margin-bottom: 1rem;

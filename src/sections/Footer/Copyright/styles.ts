@@ -7,10 +7,16 @@ export const Wrapper = styled.div`
   padding: 1.5rem 0;
   ${flexColCenter}
   text-align: center;
+  span {
+    ${display.none}
+  }
 
   ${media.tabletLandscape} {
-    br {
-      ${display.none}
+    span {
+      ${display.inlineBlock}
+      br {
+        ${display.none}
+      }
     }
   }
 `
