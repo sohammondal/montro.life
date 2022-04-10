@@ -1,135 +1,87 @@
-import Link from 'next/link'
-import { useState } from 'react'
+import NextImage from 'next/image'
+import Wave from 'react-wavify'
 
-import { Body, Button, Container, Image, Input } from 'components'
-import { config } from 'constant'
+import { Container, Logo as AppLogo } from 'components'
 import { IOuterContainer } from 'types'
 
-import { addresses, legal, quickLinks, socials } from './config'
+import { links, Item } from './config'
+import { ContactForm } from './ContactForm'
+import { Copyright } from './Copyright'
 import {
-  Address,
-  addressTitleStyles,
-  bodyStyles,
-  Cols,
-  copyStyles,
-  List,
-  ListItem,
-  Newsletter,
-  outerContainerStyles,
-  Row,
-  Socials,
-  thankYouMessage,
+  StyledFooter,
+  Logo,
+  containerStyles,
+  FooterContent,
+  Divider,
 } from './styles'
 
+const itemRenderer = (item: Item, key: number, horizontal = false) => (
+  <li key={`${item?.text}-${key}`}>
+    {item?.Icon && !horizontal && <item.Icon />}
+    {item?.Icon && horizontal && (
+      <a href={item?.href} data-has-href={!!item?.href}>
+        <item.Icon />
+      </a>
+    )}
+    {item?.text && !horizontal && (
+      <a href={item?.href} data-has-href={!!item?.href}>
+        {item.text}
+      </a>
+    )}
+    {item?.items?.length && (
+      <ul className="horizontal-list">
+        {item?.items?.map((item, key) => itemRenderer(item, key, true))}
+      </ul>
+    )}
+  </li>
+)
+
 export const Footer: React.FC<IOuterContainer> = ({ bgColor }) => {
-  const [submitted, setSubmitted] = useState(false)
   return (
-    <footer>
-      <Container divider outerStyles={outerContainerStyles} bgColor={bgColor}>
-        <Link href="/" passHref>
-          <a>
-            <Image
-              alt="oh-logo-large"
-              border={0}
-              boxshadow="none"
-              width={196}
-              height={33}
-              src={`${config.ASSETS_URL}/logos/logo.full.orange.png`}
+    <StyledFooter>
+      <Wave
+        className="footer-blob"
+        paused
+        options={{
+          height: 20,
+          amplitude: 100,
+          points: 5,
+        }}
+      />
+      <Container divider {...containerStyles} bgColor={bgColor}>
+        <Logo.Box>
+          <Logo.Wrapper>
+            <NextImage
+              src={'/images/blob.png'}
+              layout="fill"
+              objectFit="contain"
+              className="blob-bg"
             />
-          </a>
-        </Link>
-        <Row>
-          <Cols.One>
-            <Body css={bodyStyles}>
-              <a href="tel:+918861115000">+91 886 111 5000</a>
-              <br />
-              <a href="mailto:hello@openhouse.study">hello@openhouse.study</a>
-              <br />
-              {addresses
-                .map((location) => location.title.toLowerCase())
-                .join(' | ')}
-            </Body>
-            <Body css={[copyStyles, bodyStyles]}>
-              Copyright &copy; {new Date().getFullYear()}
-              <br />
-              Openhouse
-              <br />
-              All rights reserved
-            </Body>
-            <Body css={Cols.headingStyles} variant="lg" bold>
-              Stay Connected
-            </Body>
-            <Socials.Wrapper>
-              {socials.map(({ name, href, icon: Icon }) => (
-                <Socials.Btn key={name} href={href}>
-                  <Icon />
-                </Socials.Btn>
-              ))}
-            </Socials.Wrapper>
-          </Cols.One>
-          <Cols.Two>
-            <Body css={Cols.headingStyles} variant="lg" bold>
-              Quick Links
-            </Body>
-            <List>
-              {quickLinks.map(({ name, href }) => (
-                <ListItem key={name}>
-                  <Link href={href}>{name}</Link>
-                </ListItem>
-              ))}
-            </List>
-          </Cols.Two>
-          <Cols.Three>
-            <Body css={Cols.headingStyles} variant="lg" bold>
-              Legal
-            </Body>
-            <List>
-              {legal.map(({ name, href }) => (
-                <ListItem key={name}>
-                  <Link href={href}>{name}</Link>
-                </ListItem>
-              ))}
-            </List>
-          </Cols.Three>
-          <Cols.Four>
-            <Body css={Cols.headingStyles} variant="lg" bold>
-              Classes
-            </Body>
-            <List>
-              <ListItem>
-                <Link href={'/'}>Name</Link>
-              </ListItem>
-            </List>
-          </Cols.Four>
-          <Cols.Five>
-            <Body bold>Sign up for our newsletter</Body>
-            {!submitted ? (
-              <Newsletter>
-                <Input />
-                <Button>Sign Up</Button>
-              </Newsletter>
-            ) : (
-              <Body bold>
-                <span css={thankYouMessage}>Thank you,</span>
-                <br />
-                Your form has been submitted
-              </Body>
-            )}
-            {addresses.map(({ title, address }) => (
-              <div key={title}>
-                <Body bold css={addressTitleStyles}>
-                  {title} Office
-                </Body>
-                <Address>{address}</Address>
-              </div>
-            ))}
-          </Cols.Five>
-        </Row>
+            <AppLogo fill="black" />
+          </Logo.Wrapper>
+        </Logo.Box>
+        <FooterContent.Wrapper>
+          <FooterContent.LeftSection>
+            {links.map((link) => {
+              return (
+                <ul key={link.title} className="vertical-list">
+                  {link.title}
+                  {link.items.map((item, key) => itemRenderer(item, key))}
+                </ul>
+              )
+            })}
+          </FooterContent.LeftSection>
+          <Divider />
+          <FooterContent.RightSection>
+            <ContactForm />
+          </FooterContent.RightSection>
+        </FooterContent.Wrapper>
+        <Copyright />
       </Container>
-    </footer>
+    </StyledFooter>
   )
 }
 
 Footer.defaultProps = {
-  bgColor: 'gray',
+  bgColor: 'primary',
 }

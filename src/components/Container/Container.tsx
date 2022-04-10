@@ -29,8 +29,8 @@ export const OuterContainer = styled.section<IOuterContainer>`
   ${({ theme: { spacings, colors }, bgColor }) => css`
     padding: ${spacings['30']} 0;
 
-    background-color: ${bgColor === 'gray'
-      ? colors.BridalHealth
+    background-color: ${bgColor === 'primary'
+      ? colors.Caramel
       : colors.BridalHealth};
 
     ${media.tabletPortrait} {
@@ -64,5 +64,5 @@ export const Container: React.FC<IContainer> = ({
 Container.defaultProps = {
   divider: false,
   dividerStyles: '',
-  bgColor: 'white',
+  bgColor: 'secondary',
 }

@@ -1,153 +1,164 @@
 import styled, { css } from 'styled-components'
 
-import { cursor, display, flexCol, flexColCenter, flexWrap, media } from 'theme'
+import {
+  cursor,
+  display,
+  flexCol,
+  flexColCenter,
+  flexRow,
+  flexRowCenter,
+  hw,
+  media,
+} from 'theme'
 
-export const outerContainerStyles = css`
-  ${media.tabletPortrait} {
-    padding-bottom: ${(props) => props.theme.spacings['132']};
-  }
-`
-
-export const Row = styled.div`
-  margin-top: ${(props) => props.theme.spacings['22']};
-  ${flexCol}
-
-  ${media.tabletPortrait} {
-    flex-direction: row;
-    justify-content: space-between;
-    ${flexWrap.no}
-
-    & > div:not(:last-child) {
-      margin-right: ${(props) => props.theme.spacings['44']};
+export const StyledFooter = styled.footer`
+  position: relative;
+  .footer-blob {
+    display: flex !important;
+    svg {
+      background-color: transparent;
+      path {
+        fill: ${(props) => props.theme.colors.CaramelLite};
+      }
     }
   }
 `
 
-export const Cols = {
-  One: styled.div`
-    order: 1;
+export const containerStyles = {
+  outerStyles: css`
+    min-height: 80vh;
+    background-color: ${(props) => props.theme.colors.CaramelLite};
   `,
-  Two: styled.div`
-    order: 3;
-    margin-top: ${(props) => props.theme.spacings['22']};
-
-    ${media.tabletPortrait} {
-      margin-top: 0;
-      order: 2;
-    }
-  `,
-  Three: styled.div`
-    order: 4;
-
-    ${media.tabletPortrait} {
-      order: 3;
-    }
-  `,
-  Four: styled.div`
-    order: 5;
-
-    ${media.tabletPortrait} {
-      order: 4;
-    }
-  `,
-  Five: styled.div`
-    order: 2;
-    margin-top: ${(props) => props.theme.spacings['44']};
-
-    ${media.tabletPortrait} {
-      margin-top: 0;
-      order: 5;
-    }
-  `,
-  headingStyles: css`
-    margin-bottom: ${(props) => props.theme.spacings['11']};
-
-    ${media.tabletPortrait} {
-      margin-bottom: ${(props) => props.theme.spacings['22']};
-      ${display.block}
+  innerStyles: css`
+    padding: 0;
+    ${media.tabletLandscape} {
+      padding: 0 20px;
     }
   `,
 }
 
-export const copyStyles = css`
-  margin: ${({ theme: { spacings } }) =>
-    `${spacings['18']} 0 ${spacings['44']}`};
-`
+export const Logo = {
+  Box: styled.div`
+    ${flexRowCenter}
+    position: absolute;
+    width: 100%;
+    top: 50px;
 
-export const Socials = {
+    ${media.tabletLandscape} {
+      width: 90%;
+    }
+  `,
   Wrapper: styled.div`
-    ${display.flex}
-  `,
-  Btn: styled.a`
-    border-radius: 50%;
     position: relative;
-    ${flexColCenter}
-    width: 35px;
-    height: 35px;
-
-    ${({ theme: { colors } }) =>
-      css`
-        background: ${colors.primary};
-        color: ${colors.BridalHealth};
-      `}
-
-    &:hover {
-      color: ${(props) => props.theme.colors.BridalHealth};
-    }
-
-    & > svg {
-      width: 17px;
-      height: 17px;
-    }
-
-    &:not(:last-child) {
-      margin-right: ${(props) => props.theme.spacings['11']};
+    ${hw.custom(7, 'rem')}
+    ${flexRowCenter}
+    svg {
+      position: absolute;
+      z-index: 1;
+      ${hw.custom(10, 'rem')}
     }
   `,
 }
 
-export const List = styled.ul`
-  list-style: none;
-  padding: 0;
-`
+export const FooterContent = {
+  Wrapper: styled.div`
+    ${flexColCenter}
+    padding-top: 3rem;
 
-export const ListItem = styled.li`
-  &:not(:last-child) {
-    margin-bottom: ${(props) => props.theme.spacings['11']};
+    ${media.tabletLandscape} {
+      flex-direction: row;
+      align-items: flex-start;
+      padding-top: 7rem;
+    }
+  `,
+  LeftSection: styled.div`
+    ${flexCol}
+
+    > .vertical-list {
+      font-size: 1.2rem;
+      font-weight: bold;
+      font-family: Afterglow;
+      letter-spacing: 0.5px;
+      margin-top: 1.5rem;
+
+      ${cursor.default}
+
+      > li {
+        font-size: 0.9rem;
+        font-weight: normal;
+        margin-bottom: 10px;
+        font-family: Poppins;
+
+        ${flexRowCenter}
+        justify-content: flex-start;
+
+        > svg {
+          margin-right: 10px;
+        }
+
+        a[data-has-href='false'] {
+          ${cursor.default}
+          :before {
+            display: none;
+          }
+        }
+      }
+
+      > li:first-child {
+        margin-top: 1.3rem;
+      }
+
+      .horizontal-list {
+        ${display.flex}
+        margin-top: 15px;
+
+        a {
+          background-color: ${(props) => props.theme.colors.BridalHealth};
+          ${hw.custom(25, 'px')}
+          border-radius: 50%;
+          ${flexRowCenter}
+          margin-right: 10px;
+          :before {
+            ${display.none}
+          }
+          svg {
+            transition: all ease 0.2s;
+            ${hw.custom(15, 'px')}
+          }
+
+          :hover {
+            transform: scale(1.2);
+          }
+        }
+      }
+    }
+
+    ${media.tabletLandscape} {
+      flex-basis: 55%;
+      ${flexRow}
+      justify-content: space-between;
+
+      > .vertical-list {
+        margin-top: 0;
+        margin-right: 3.5rem;
+      }
+    }
+  `,
+  RightSection: styled.div`
+    flex-basis: 35%;
+  `,
+}
+
+export const Divider = styled.div`
+  margin: 2rem 0;
+  width: 80vw;
+  border-bottom: 1px solid ${(props) => props.theme.colors.Black};
+
+  ${media.tabletLandscape} {
+    margin: 0;
+    width: 0;
+    height: 50vh;
+    border-bottom: unset;
+    border-left: 1px solid ${(props) => props.theme.colors.Black};
   }
-`
-
-export const Newsletter = styled.div`
-  ${display.flex}
-  margin-top: ${(props) => props.theme.spacings['18']};
-
-  ${media.tabletPortrait} {
-    ${flexWrap.yes}
-  }
-
-  & > button {
-    margin-left: 5px;
-  }
-`
-export const addressTitleStyles = css`
-  margin-top: ${(props) => props.theme.spacings['18']};
-`
-
-export const Address = styled.address`
-  max-width: 300px;
-  margin-top: ${(props) => props.theme.spacings['18']};
-  font-style: normal;
-  font-size: 1rem;
-  line-height: 1.3rem;
-  ${cursor.default}
-`
-
-export const thankYouMessage = css`
-  display: inline-block;
-  margin-top: ${(props) => props.theme.spacings['18']};
-  color: ${(props) => props.theme.colors.primary};
-`
-
-export const bodyStyles = css`
-  line-height: 1.5rem;
 `

@@ -6,10 +6,10 @@ export const StyledInput = styled.input`
   width: 100%;
   height: 40px;
   background: ${(props) => props.theme.colors.White};
-  border: 1px solid ${(props) => props.theme.colors.primary};
+  border: 1px solid ${(props) => props.theme.colors.BridalHealth};
   box-sizing: border-box;
   border-radius: 34px;
-  font-family: AvenirReg;
+  font-family: Poppins;
   font-style: normal;
   font-weight: normal;
   font-size: 16px;
@@ -19,12 +19,12 @@ export const StyledInput = styled.input`
 
   :focus-visible {
     outline: none;
-    color: ${(props) => props.theme.colors.primary};
+    color: ${(props) => props.theme.colors.Black};
   }
 `
 
 export const bodyStyles = css`
   height: 10px;
-  color: ${(props) => props.theme.colors.Black};
+  color: ${(props) => props.theme.colors.Orange};
   margin: 5px 0 2px 10px;
 `

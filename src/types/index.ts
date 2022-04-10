@@ -25,5 +25,5 @@ export interface PageDataProps {
 }
 
 export interface IOuterContainer {
-  bgColor?: 'white' | 'gray'
+  bgColor?: 'primary' | 'secondary'
 }

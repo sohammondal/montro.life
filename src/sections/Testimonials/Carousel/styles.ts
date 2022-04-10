@@ -33,7 +33,7 @@ export const Slide = styled.div`
   ${flexColCenter}
   justify-content: space-evenly;
 
-  background: #ffd68a99;
+  background-color: ${(props) => props.theme.colors.CaramelLite};
   padding: 50px;
   border-radius: 27px;
 
@@ -102,9 +102,8 @@ export const Avatar = styled.div`
 `
 
 export const Socials = styled.span`
-  ${display.flex}
-  justify-content: center;
-  align-items: center;
+  ${flexRowCenter}
+
   a {
     margin: 2.5px;
     border-radius: 50%;
@@ -120,6 +119,7 @@ export const Socials = styled.span`
     ::before {
       display: none;
     }
+
     :hover {
       background-color: ${(props) => props.theme.colors.BridalHealth};
     }

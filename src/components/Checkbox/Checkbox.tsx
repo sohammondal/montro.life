@@ -52,8 +52,8 @@ export const Checkbox = (props: Props): React.ReactElement => {
 }
 
 Checkbox.defaultProps = {
-  color: colors.primary,
-  borderColor: colors.BridalHealth,
+  color: colors.Black,
+  borderColor: colors.Black,
   selectIconColor: colors.BridalHealth,
   disabled: false,
   label: 'Custom Label',

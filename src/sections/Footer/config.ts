@@ -1,82 +1,112 @@
+import { IconType } from 'react-icons'
 import {
   FaYoutube,
   FaInstagram,
-  FaFacebookSquare,
+  FaFacebookF,
   FaWhatsapp,
   FaLinkedinIn,
+  FaMapMarkerAlt,
+  FaEnvelope,
+  FaPhoneAlt,
 } from 'react-icons/fa'
 
-export const socials = [
-  {
-    name: 'WhatsApp',
-    icon: FaWhatsapp,
-    href: 'https://api.whatsapp.com/send?phone=918861115000&text=Hi',
-  },
-  {
-    name: 'Instagram',
-    icon: FaInstagram,
-    href: 'https://www.instagram.com/openhouse.community/?hl=en',
-  },
-  {
-    name: 'LinkedIn',
-    icon: FaLinkedinIn,
-    href: 'https://www.linkedin.com/company/openhouselearning',
-  },
-  {
-    name: 'Youtube',
-    icon: FaYoutube,
-    href: 'https://www.youtube.com/channel/UCMj9VWaEvkPH1WPIaT68Q8Q',
-  },
-  {
-    name: 'Facebook',
-    icon: FaFacebookSquare,
-    href: 'https://www.facebook.com/openhouse.study/',
-  },
-]
+export interface Item {
+  text?: string
+  href?: string
+  Icon?: IconType
+  items?: Item[]
+}
 
-export const quickLinks = [
-  {
-    name: 'Home',
-    href: '/',
-  },
-  {
-    name: 'Clubs',
-    href: '/clubs',
-  },
-  {
-    name: 'About Us',
-    href: '/about-us',
-  },
-  {
-    name: 'Blog',
-    href: '/blog',
-  },
-]
+interface Link {
+  title: string
+  items: Item[]
+}
 
-export const legal = [
+export const links: Link[] = [
   {
-    name: 'Terms & Conditions',
-    href: '/legal/terms-and-conditions',
+    title: 'Working Hours',
+    items: [
+      {
+        text: 'Mon - Thurs : 6 am - 9 am',
+      },
+      {
+        text: 'Fri : 7 am - 9 am',
+      },
+      {
+        text: 'Sat : 7 am - 10 am',
+      },
+      {
+        text: 'Sun : 9 am - 12 pm',
+      },
+    ],
   },
   {
-    name: 'Privacy Policy',
-    href: '/legal/privacy-policy',
+    title: 'Popular Services',
+    items: [
+      {
+        text: 'Health Yoga Class',
+      },
+      {
+        text: 'Pregnancy Yoga',
+      },
+      {
+        text: 'Deep Meditation',
+      },
+      {
+        text: 'Yoga Therapy',
+      },
+      {
+        text: 'Advanced Courses',
+      },
+    ],
   },
   {
-    name: 'Refund & Return Policy',
-    href: '/legal/refund-and-return-policy',
-  },
-]
-
-export const addresses = [
-  {
-    title: 'Kolkata',
-    address:
-      '7th floor, 1, Shakespeare Sarani Rd, AC Market, Park Street area, Kolkata, West Bengal 700071',
-  },
-  {
-    title: 'Bangalore',
-    address:
-      '4th floor, 41/42, Residency Rd, opposite Gateway Hotel, Shanthala Nagar, Ashok Nagar, Bengaluru, Karnataka 560025',
+    title: 'Contact Us',
+    items: [
+      {
+        Icon: FaMapMarkerAlt,
+        text: 'Kolkata, India',
+        href: 'https://goo.gl/maps/2jJtv3uzfNTCPHhs6',
+      },
+      {
+        Icon: FaPhoneAlt,
+        text: '7003355200',
+        href: 'tel:+917003355200',
+      },
+      {
+        Icon: FaEnvelope,
+        text: 'contact@montro.life',
+        href: 'mailto:contact@montro.life',
+      },
+      {
+        items: [
+          {
+            text: 'WhatsApp',
+            Icon: FaWhatsapp,
+            href: 'https://api.whatsapp.com/send?phone=917003355200&text=Hi',
+          },
+          {
+            text: 'Instagram',
+            Icon: FaInstagram,
+            href: 'https://www.instagram.com/montro.life/?hl=en',
+          },
+          {
+            text: 'LinkedIn',
+            Icon: FaLinkedinIn,
+            href: 'https://www.linkedin.com/company/montro.life',
+          },
+          {
+            text: 'Youtube',
+            Icon: FaYoutube,
+            href: 'https://www.youtube.com/channel/UCMj9VWaEvkPH1WPIaT68Q8Q',
+          },
+          {
+            text: 'Facebook',
+            Icon: FaFacebookF,
+            href: 'https://www.facebook.com/montro.life/',
+          },
+        ],
+      },
+    ],
   },
 ]

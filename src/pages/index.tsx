@@ -7,9 +7,18 @@ import {
   Testimonials,
   Trainers,
   Timings,
+  Footer,
 } from 'sections'
 
-const sections = [Header, Hero, KnowAboutYoga, Testimonials, Trainers, Timings]
+const sections = [
+  Header,
+  Hero,
+  KnowAboutYoga,
+  Testimonials,
+  Trainers,
+  Timings,
+  Footer,
+]
 
 const Home: NextPage = ({}) => {
   return (

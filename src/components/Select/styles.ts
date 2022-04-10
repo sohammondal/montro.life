@@ -14,7 +14,7 @@ export const LoaderWrapper = styled.span`
 
 export const StyledSelect = styled.select<{ isLoading?: boolean }>`
   height: 40px;
-  border: 1px solid ${(props) => props.theme.colors.primary};
+  border: 1px solid ${(props) => props.theme.colors.Black};
   border-radius: 27px;
   padding: 0px 20px;
   width: 100%;
@@ -41,6 +41,6 @@ export const StyledSelect = styled.select<{ isLoading?: boolean }>`
 
 export const bodyStyles = css`
   height: 10px;
-  color: ${(props) => props.theme.colors.primary};
+  color: ${(props) => props.theme.colors.Black};
   margin: 5px 0 2px 10px;
 `

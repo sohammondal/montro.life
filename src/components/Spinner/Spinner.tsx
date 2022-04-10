@@ -15,5 +15,5 @@ export const Spinner: React.FC<Props> = ({ size, color }) => {
 
 Spinner.defaultProps = {
   size: '20px',
-  color: colors.primary,
+  color: colors.Orange,
 }

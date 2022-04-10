@@ -10,7 +10,7 @@ export interface IColors {
   Black: string
   White: string
   Caramel: string
-  primary: string
+  CaramelLite: string
 }
 
 export const colors: IColors = {
@@ -25,5 +25,5 @@ export const colors: IColors = {
   Black: '#000000',
   White: '#FFFFFF',
   Caramel: '#FFD68A',
-  primary: '#FF9900',
+  CaramelLite: '#ffd68a99',
 }
