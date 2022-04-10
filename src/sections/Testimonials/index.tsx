@@ -2,7 +2,7 @@ import React from 'react'
 import { Parallax } from 'react-parallax'
 import Waves from 'react-wavify'
 
-import { H1 } from 'components'
+import { sectionIds } from 'constant'
 import { colors } from 'theme'
 
 import { Carousel } from './Carousel'
@@ -21,7 +21,11 @@ const wavesProps = {
 const Blobs = () => {
   return (
     <>
-      <Waves {...wavesProps} className="blob top-blob" />
+      <Waves
+        {...wavesProps}
+        className="blob top-blob"
+        id={sectionIds.testimonials}
+      />
       <Waves
         {...wavesProps}
         fill={colors.BridalHealth}

@@ -45,6 +45,9 @@ Hero.defaultProps = {
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In id risus nec turpis feugiat ornare eu non sem. Nam molestie eleifend dui, id tristique lectus.',
   cta: {
     children: 'Learn More',
-    onClick: () => scrollTo(sectionIds.locations),
+    onClick: () =>
+      scrollTo(sectionIds.aboutYoga, {
+        block: 'start',
+      }),
   },
 }

@@ -1,14 +1,6 @@
 import styled, { css } from 'styled-components'
 
-import {
-  display,
-  flexCol,
-  flexColCenter,
-  flexRow,
-  flexRowCenter,
-  hw,
-  media,
-} from 'theme'
+import { flexCol, flexColCenter, flexRow, hw, media } from 'theme'
 
 export const containerStyles = {
   outerStyles: css`

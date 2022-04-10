@@ -2,6 +2,7 @@ import NextImage from 'next/image'
 import Wave from 'react-wavify'
 
 import { Container, Logo as AppLogo } from 'components'
+import { sectionIds } from 'constant'
 import { IOuterContainer } from 'types'
 
 import { links, Item } from './config'
@@ -38,7 +39,7 @@ const itemRenderer = (item: Item, key: number, horizontal = false) => (
 
 export const Footer: React.FC<IOuterContainer> = ({ bgColor }) => {
   return (
-    <StyledFooter>
+    <StyledFooter id={sectionIds.contactForm}>
       <Wave
         className="footer-blob"
         paused

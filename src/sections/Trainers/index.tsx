@@ -1,7 +1,8 @@
 import NextImage from 'next/image'
 import React from 'react'
 
-import { Body, Container, H1, H3, H4 } from 'components'
+import { Body, Container, H1, H4 } from 'components'
+import { sectionIds } from 'constant'
 
 import { containerStyles, Trainer, Wrapper } from './styles'
 
@@ -22,7 +23,7 @@ const trainers = [
 
 export const Trainers = () => {
   return (
-    <Container {...containerStyles}>
+    <Container {...containerStyles} id={sectionIds.trainers}>
       <H1>Meet Our Expert Trainers</H1>
       <Wrapper>
         {trainers.map((trainer) => {

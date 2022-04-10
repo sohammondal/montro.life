@@ -3,6 +3,8 @@ import React from 'react'
 import Waves from 'react-wavify'
 
 import { Body, Button, Container, H1, H4 } from 'components'
+import { sectionIds } from 'constant'
+import { scrollTo } from 'helpers'
 import { colors } from 'theme'
 
 import { yogaPoses } from './data'
@@ -24,7 +26,7 @@ const wavesProps = {
 export const KnowAboutYoga = () => {
   return (
     <>
-      <Waves {...wavesProps} />
+      <Waves {...wavesProps} id={sectionIds.aboutYoga} />
       <Container {...containerStyles}>
         <MediaBox>
           <NextImage
@@ -57,7 +59,9 @@ export const KnowAboutYoga = () => {
               </YogaPoses.Item.Wrapper>
             ))}
           </YogaPoses.List>
-          <Button>Know More</Button>
+          <Button onClick={() => scrollTo(sectionIds.trainers)}>
+            Know More
+          </Button>
         </ContentBox>
       </Container>
     </>

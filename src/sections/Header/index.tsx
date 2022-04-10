@@ -5,24 +5,26 @@ import React from 'react'
 import { Container } from 'components'
 import { HamburgerMenu } from 'components/HamburgerMenu'
 import { Logo } from 'components/Logo'
+import { sectionIds } from 'constant'
 
 import { LogoWrapper, BlobWrapper, Nav, containerStyles } from './styles'
 
 const navLinks = [
   {
     title: 'About Yoga',
-  },
-  {
-    title: 'Gallery',
+    href: `#${sectionIds.aboutYoga}`,
   },
   {
     title: 'Testimonials',
+    href: `#${sectionIds.testimonials}`,
   },
   {
     title: 'Trainers',
+    href: `#${sectionIds.trainers}`,
   },
   {
     title: 'Contact Us',
+    href: `#${sectionIds.contactForm}`,
   },
 ]
 
@@ -45,14 +47,14 @@ export const Header = () => {
           <ul>
             {navLinks.map((link, idx) => (
               <li key={`nav-list-item-${idx}`}>
-                <Link href="/">{link.title}</Link>
+                <Link href={link.href || '#'}>{link.title}</Link>
               </li>
             ))}
           </ul>
           <div className="hamburger-menu">
             <HamburgerMenu
               items={navLinks.map((link, idx) => (
-                <Link key={`hamburger-item-${idx}`} href="/">
+                <Link key={`hamburger-item-${idx}`} href={link.href || '#'}>
                   {link.title}
                 </Link>
               ))}
