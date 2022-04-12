@@ -7,7 +7,7 @@ import { HamburgerMenu } from 'components/HamburgerMenu'
 import { Logo } from 'components/Logo'
 import { sectionIds } from 'constant'
 
-import { LogoWrapper, BlobWrapper, Nav, containerStyles } from './styles'
+import { LogoWrapper, Nav, containerStyles } from './styles'
 
 const navLinks = [
   {
@@ -32,15 +32,14 @@ export const Header = () => {
   return (
     <>
       <Container {...containerStyles}>
-        <BlobWrapper>
+        <LogoWrapper>
           <NextImage
             src={'/images/blobs/logo-blob.png'}
-            layout="fill"
-            objectFit={'cover'}
-            className="blob-bg"
+            layout="responsive"
+            objectFit="contain"
+            width="100%"
+            height="100%"
           />
-        </BlobWrapper>
-        <LogoWrapper>
           <Logo fill="black" />
         </LogoWrapper>
         <Nav>

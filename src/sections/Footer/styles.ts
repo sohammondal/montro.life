@@ -7,6 +7,7 @@ import {
   flexColCenter,
   flexRow,
   flexRowCenter,
+  flexWrap,
   hw,
   media,
 } from 'theme'
@@ -28,6 +29,7 @@ export const containerStyles = {
   outerStyles: css`
     min-height: 80vh;
     background-color: ${(props) => props.theme.colors.CaramelLite};
+    position: relative;
   `,
   innerStyles: css`
     padding: 0;
@@ -42,10 +44,10 @@ export const Logo = {
     ${flexRowCenter}
     position: absolute;
     width: 100%;
-    top: 50px;
+    top: -6.25rem;
+    left: 0;
 
     ${media.tabletLandscape} {
-      width: 90%;
     }
   `,
   Wrapper: styled.div`
@@ -138,7 +140,10 @@ export const FooterContent = {
     ${media.tabletLandscape} {
       flex-basis: 55%;
       ${flexRow}
+      ${flexWrap.yes}
       justify-content: space-between;
+      align-content: space-between;
+      height: 52vh;
 
       > .vertical-list {
         margin-top: 0;

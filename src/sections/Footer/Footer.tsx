@@ -71,13 +71,13 @@ export const Footer: React.FC<IOuterContainer> = ({ bgColor }) => {
                 </ul>
               )
             })}
+            <Copyright />
           </FooterContent.LeftSection>
           <Divider />
           <FooterContent.RightSection>
             <ContactForm />
           </FooterContent.RightSection>
         </FooterContent.Wrapper>
-        <Copyright />
       </Container>
     </StyledFooter>
   )

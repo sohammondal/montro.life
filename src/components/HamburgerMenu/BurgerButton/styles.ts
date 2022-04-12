@@ -13,14 +13,9 @@ export const Button = styled.button<{ $open: boolean }>`
   padding: 0;
   z-index: 10;
   transform: scale(0.8);
-
-  ${(props) =>
-    props.$open &&
-    css`
-      position: absolute;
-      top: -15px;
-      right: 15px;
-    `}
+  position: absolute;
+  top: 0;
+  right: 0;
 
   &:focus {
     outline: none;

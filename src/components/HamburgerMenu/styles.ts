@@ -28,6 +28,6 @@ export const Overlay = styled.div<{ $open: boolean }>`
   z-index: 1;
   display: flex;
   justify-content: flex-end;
-  transform: ${({ $open }) => ($open ? 'translateX(0%)' : 'translateX(100%)')};
+  transform: translateX(${({ $open }) => ($open ? 0 : 99.9)}%);
   transition: transform ease 0.5s;
 `
