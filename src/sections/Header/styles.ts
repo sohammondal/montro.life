@@ -26,6 +26,10 @@ export const containerStyles = {
     }
 
     ${media.tabletLandscape} {
+      height: 2vh;
+    }
+
+    ${media.desktop} {
       height: 7vh;
     }
   `,

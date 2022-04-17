@@ -3,4 +3,5 @@ export const sectionIds = {
   testimonials: 'montro-testimonials',
   trainers: 'montro-trainers',
   contactForm: 'montro-contact-form',
+  aboutAindrilla: 'montro-about-aindrilla',
 }

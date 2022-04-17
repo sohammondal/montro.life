@@ -14,7 +14,7 @@ export const FormContainer = styled.div`
 
   ${media.tabletPortrait} {
     ${display.block}
-    padding-left: 3rem;
+    padding: 0;
   }
 `
 
@@ -22,6 +22,7 @@ export const btnStyles = css`
   width: 70%;
   margin-top: 44px;
   padding: 7px 50px;
+  background-color: ${(props) => props.theme.colors.BridalHealth};
 
   ${media.tabletPortrait} {
     align-self: flex-start;

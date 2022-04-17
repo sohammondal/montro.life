@@ -5,11 +5,18 @@ import {
   Header,
   KnowAboutYoga,
   Testimonials,
-  Trainers,
+  AboutAindrilla,
   Footer,
 } from 'sections'
 
-const sections = [Header, Hero, KnowAboutYoga, Testimonials, Trainers, Footer]
+const sections = [
+  Header,
+  Hero,
+  KnowAboutYoga,
+  Testimonials,
+  AboutAindrilla,
+  Footer,
+]
 
 const Home: NextPage = ({}) => {
   return (

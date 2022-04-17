@@ -7,8 +7,45 @@ import { sectionIds } from 'constant'
 import { scrollTo } from 'helpers'
 import { colors } from 'theme'
 
-import { yogaPoses } from './data'
 import { containerStyles, MediaBox, ContentBox, YogaPoses } from './styles'
+
+export const yogaPoses = [
+  {
+    image: { src: '/images/icons/yoga-line-icon-1.png' },
+    title: (
+      <>
+        Strong <br />
+        Body
+      </>
+    ),
+    subtitle: 'Lorem Ipsum Text',
+  },
+  {
+    image: { src: '/images/icons/yoga-line-icon-2.png' },
+    title: 'Increased Flexibility',
+    subtitle: 'Lorem Ipsum Text',
+  },
+  {
+    image: { src: '/images/icons/yoga-line-icon-3.png' },
+    title: (
+      <>
+        Healthy <br />
+        Lifestyle
+      </>
+    ),
+    subtitle: 'Lorem Ipsum Text',
+  },
+  {
+    image: { src: '/images/icons/yoga-line-icon-4.png' },
+    title: (
+      <>
+        Live <br />
+        Stress-free
+      </>
+    ),
+    subtitle: 'Lorem Ipsum Text',
+  },
+]
 
 const wavesProps = {
   fill: colors.Caramel,
@@ -32,17 +69,17 @@ export const KnowAboutYoga = () => {
           <NextImage
             src={`/images/yoga-pose-3.png`}
             layout="responsive"
-            width={500}
-            height={600}
+            width="100%"
+            height="100%"
             objectFit="contain"
           />
         </MediaBox>
         <ContentBox>
           <H1>Know About Yoga</H1>
           <H4>
-            Aenean nunc augue, volutpat id massa sed, facilisis efficitur nisl
-            orci nulla, efficitur id ante at, finibus consequat sapien. Nulla
-            fermen vel purus at mollis sed malesuada laoreet quam.
+            Yoga means union of mind and body. We focus on bringing a perfect
+            harmony between them. By practising yoga you can improve physical
+            strength as well as increase flexibility.
           </H4>
           <YogaPoses.List>
             {yogaPoses.map((yogaPose, idx) => (
@@ -54,7 +91,6 @@ export const KnowAboutYoga = () => {
                   <Body bold font="Afterglow">
                     {yogaPose.title}
                   </Body>
-                  <Body variant="sm">{yogaPose.subtitle}</Body>
                 </YogaPoses.Item.Content>
               </YogaPoses.Item.Wrapper>
             ))}

@@ -7,27 +7,37 @@ import {
   flexRow,
   flexRowCenter,
   flexWrap,
+  hw,
   media,
 } from 'theme'
 
 export const containerStyles = {
   outerStyles: css`
     padding: 0 2rem;
-    margin-top: -12%;
+    margin-top: -4%;
     background-color: ${(props) => props.theme.colors.Caramel};
 
-    ${media.desktop} {
+    ${media.tabletPortrait} {
       margin-top: unset;
+    }
+
+    ${media.tabletLandscape} {
+      margin-top: -1%;
+    }
+
+    ${media.desktop} {
       padding: 30px 0;
     }
   `,
   innerStyles: css`
     padding: 0;
 
-    ${media.desktop} {
+    ${media.tabletPortrait} {
       ${flexRowCenter}
-      justify-content: space-evenly;
+    }
 
+    ${media.desktop} {
+      justify-content: space-evenly;
       height: 70vh;
       padding-bottom: 60px;
     }
@@ -39,9 +49,13 @@ export const MediaBox = styled.div`
 `
 
 export const ContentBox = styled.div`
-  height: 75vh;
   ${flexColCenter}
   justify-content: space-evenly;
+  flex-basis: 50%;
+
+  > * {
+    margin-bottom: 22px;
+  }
 
   h1,
   h4 {
@@ -55,6 +69,14 @@ export const ContentBox = styled.div`
     :hover {
       border-color: black;
       color: black;
+    }
+  }
+
+  ${media.tabletLandscape} {
+    flex-basis: 45%;
+    height: 75vh;
+    > * {
+      margin-bottom: unset;
     }
   }
 
@@ -76,6 +98,7 @@ export const YogaPoses = {
       ${flexRowCenter}
       justify-content: flex-start;
       width: 227px;
+      flex-basis: 50%;
       margin-bottom: 1rem;
 
       ${media.tabletLandscape} {
@@ -86,8 +109,7 @@ export const YogaPoses = {
       position: relative;
       margin-right: 10px;
       ${display.flex}
-      height: 50px;
-      width: 50px;
+      ${hw.custom(50, 'px')}
     `,
     Content: styled.div`
       height: 100%;
@@ -95,6 +117,14 @@ export const YogaPoses = {
       justify-content: space-evenly;
       p:first-child {
         letter-spacing: 0.5px;
+      }
+
+      ${media.tabletLandscape} {
+        p:first-child {
+          br {
+            ${display.none}
+          }
+        }
       }
     `,
   },

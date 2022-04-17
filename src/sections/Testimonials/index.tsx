@@ -38,7 +38,7 @@ const Blobs = () => {
 export const Testimonials = () => {
   return (
     <Container>
-      <Parallax bgImage="/images/parallax-bg-2.png" strength={450} blur={2}>
+      <Parallax bgImage="/images/yoga-pose-6.png" strength={400}>
         <Content>
           <Carousel />
         </Content>

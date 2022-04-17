@@ -19,7 +19,7 @@ export const StyledFooter = styled.footer`
     svg {
       background-color: transparent;
       path {
-        fill: ${(props) => props.theme.colors.CaramelLite};
+        fill: ${(props) => props.theme.colors.Caramel};
       }
     }
   }
@@ -28,13 +28,17 @@ export const StyledFooter = styled.footer`
 export const containerStyles = {
   outerStyles: css`
     min-height: 80vh;
-    background-color: ${(props) => props.theme.colors.CaramelLite};
     position: relative;
+    ${media.tabletLandscape} {
+      min-height: 71vh;
+    }
+    ${media.desktop} {
+      min-height: 80vh;
+    }
   `,
   innerStyles: css`
     padding: 0;
     ${media.tabletLandscape} {
-      padding: 0 20px;
     }
   `,
 }
@@ -68,9 +72,10 @@ export const FooterContent = {
     padding-top: 3rem;
 
     ${media.tabletLandscape} {
-      flex-direction: row;
+      ${flexRow}
       align-items: flex-start;
       padding-top: 7rem;
+      margin-top: -1%;
     }
   `,
   LeftSection: styled.div`
@@ -137,22 +142,41 @@ export const FooterContent = {
       }
     }
 
-    ${media.tabletLandscape} {
-      flex-basis: 55%;
+    ${media.tabletPortrait} {
       ${flexRow}
       ${flexWrap.yes}
-      justify-content: space-between;
+      justify-content: space-evenly;
+      order: 3;
+    }
+
+    ${media.tabletLandscape} {
+      flex-basis: 55%;
+      justify-content: flex-start;
       align-content: space-between;
       height: 52vh;
-
+      order: unset;
       > .vertical-list {
         margin-top: 0;
+        margin-right: 2.5rem;
+      }
+    }
+
+    ${media.desktop} {
+      > .vertical-list {
         margin-right: 3.5rem;
       }
     }
   `,
   RightSection: styled.div`
     flex-basis: 35%;
+
+    ${media.tabletPortrait} {
+      order: 1;
+    }
+
+    ${media.tabletLandscape} {
+      order: unset;
+    }
   `,
 }
 
@@ -161,8 +185,14 @@ export const Divider = styled.div`
   width: 80vw;
   border-bottom: 1px solid ${(props) => props.theme.colors.Black};
 
+  ${media.tabletPortrait} {
+    order: 2;
+  }
+
   ${media.tabletLandscape} {
+    order: unset;
     margin: 0;
+    margin-right: 3rem;
     width: 0;
     height: 50vh;
     border-bottom: unset;

@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 import { Swiper } from 'swiper/react'
 
 import {
@@ -14,12 +14,10 @@ import {
 export const StyledSwiper = styled(Swiper)`
   ${hw.full}
 
-  --swiper-theme-color: white;
-  --swiper-pagination-bullet-inactive-color: white;
-  --swiper-pagination-bullet-inactive-opacity: 0.5;
+  --swiper-theme-color: ${(props) => props.theme.colors.Caramel};
 
   .swiper-pagination-bullets {
-    bottom: 10rem;
+    bottom: 10.5rem;
   }
 
   .swiper-slide {
@@ -89,6 +87,7 @@ export const Blockquote = styled.blockquote`
 
 export const Cite = styled.cite`
   ${textAlign.center}
+  ${flexColCenter}
   > * {
     margin: 3px 0;
   }
@@ -108,7 +107,7 @@ export const Socials = styled.span`
     margin: 2.5px;
     border-radius: 50%;
     ${hw.custom(20, 'px')}
-    background-color: ${(props) => props.theme.colors.Caramel};
+    background-color: ${(props) => props.theme.colors.BridalHealth};
     ${flexRowCenter}
 
     svg {
@@ -117,7 +116,7 @@ export const Socials = styled.span`
     }
 
     ::before {
-      display: none;
+      ${display.none}
     }
 
     :hover {

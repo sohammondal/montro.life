@@ -1,10 +1,22 @@
 import styled from 'styled-components'
 
-import { flexColCenter } from 'theme'
+import { flexColCenter, media } from 'theme'
 
 export const Container = styled.section`
   position: relative;
   height: 150vh;
+
+  ${media.tabletPortrait} {
+    height: 85vh;
+  }
+
+  ${media.tabletLandscape} {
+    height: 120vh;
+  }
+
+  ${media.desktop} {
+    height: 150vh;
+  }
 
   .blob {
     display: flex !important;

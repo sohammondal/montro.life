@@ -1,14 +1,13 @@
-/* eslint-disable @next/next/no-img-element */
+import NextImage from 'next/image'
 import React from 'react'
 // eslint-disable-next-line import/no-named-as-default
 import Swiper, { Pagination, Autoplay } from 'swiper'
 import { SwiperSlide } from 'swiper/react'
 
 import 'swiper/swiper.min.css'
-import 'swiper/components/navigation/navigation.min.css'
 import 'swiper/components/pagination/pagination.min.css'
 
-import { Body, H3 } from 'components'
+import { Body, H4 } from 'components'
 
 import { testimonials } from './data'
 import {
@@ -26,8 +25,10 @@ export const Carousel: React.FC = () => {
   return (
     <StyledSwiper
       pagination={{ clickable: true }}
-      autoplay={false}
-      loop={false}
+      autoplay
+      loop
+      spaceBetween={30}
+      centeredSlides
     >
       {testimonials.map((testimonial, idx) => {
         const {
@@ -38,23 +39,33 @@ export const Carousel: React.FC = () => {
           <SwiperSlide key={`client-testimonial-${idx}`}>
             <Slide>
               <Blockquote>
-                <H3>{feedback}</H3>
+                <H4>{feedback}</H4>
               </Blockquote>
               <Cite>
                 <Avatar>
-                  <img src={image} width="100%" height="100%" alt="" />
+                  <NextImage
+                    src={image}
+                    layout="fixed"
+                    objectFit="cover"
+                    loading="eager"
+                    width={100}
+                    height={100}
+                  />
                 </Avatar>
-
                 <Body bold font="Afterglow">
                   {name}
                 </Body>
-
                 <Body bold variant="md">
                   {title}
                 </Body>
                 <Socials>
                   {socials.map((social, idx) => (
-                    <a key={`${name}-${social.name}-${idx}`}>
+                    <a
+                      key={`${name}-${social.name}-${idx}`}
+                      href={social.href}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
                       <social.icon />
                     </a>
                   ))}

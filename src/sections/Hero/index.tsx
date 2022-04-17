@@ -47,7 +47,7 @@ Hero.defaultProps = {
     </>
   ),
   subtitle:
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In id risus nec turpis feugiat ornare eu non sem. Nam molestie eleifend dui, id tristique lectus.',
+    'Let that be the montro of your life, and start focusing on your mind & body',
   cta: {
     children: 'Learn More',
     onClick: () =>
