@@ -10,3 +10,7 @@ export const Button: React.FC<Props> = ({ children, ...props }) => {
     </StyledButton>
   )
 }
+
+Button.defaultProps = {
+  variant: 'primary',
+}

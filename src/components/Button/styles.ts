@@ -1,8 +1,29 @@
-import styled, { css } from 'styled-components'
+import styled, { css, CSSProp } from 'styled-components'
 
 import { cursor } from 'theme'
 
-import { Props } from './types'
+import { ButtonVariants, Props } from './types'
+
+const variantStyles: Record<ButtonVariants, CSSProp> = {
+  primary: css`
+    ${(props) => `
+      border: 2px solid ${props.theme.colors.Caramel};
+      background-color: ${props.theme.colors.Caramel};
+      :hover {
+          background-color: ${props.theme.colors.BridalHealth};
+          color: ${props.theme.colors.Black};
+        }
+       
+    `}
+  `,
+  secondary: css`
+    background-color: ${(props) => props.theme.colors.BridalHealth};
+    border: 0;
+    :hover {
+      box-shadow: 3px 6px 13px -4px rgba(0, 0, 0, 0.51);
+    }
+  `,
+}
 
 export const buttonStyles = css<Props>`
   font-family: Poppins;
@@ -18,18 +39,13 @@ export const buttonStyles = css<Props>`
 
   ${(props) => {
     return css`
-      border: 2px solid ${props.theme.colors.Caramel};
-      background-color: ${props.theme.colors.Caramel};
       color: ${props.theme.colors.Black};
       ${props.isLoading &&
       css`
         padding: 0;
         line-height: 0;
       `};
-      &:hover {
-        background-color: ${props.theme.colors.BridalHealth};
-        color: ${props.theme.colors.Black};
-      }
+      ${variantStyles[props.variant || 'primary']}
     `
   }}
 `
