@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { flexColCenter, media } from 'theme'
+import { flexColCenter, media, hw } from 'theme'
 
 export const Container = styled.section`
   position: relative;
@@ -45,7 +45,6 @@ export const Container = styled.section`
 `
 
 export const Content = styled.div`
-  width: 100%;
-  height: 100%;
+  ${hw.full}
   ${flexColCenter}
 `

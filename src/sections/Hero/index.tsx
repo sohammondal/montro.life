@@ -46,8 +46,12 @@ Hero.defaultProps = {
       exhale the past
     </>
   ),
-  subtitle:
-    'Let that be the montro of your life, and start focusing on your mind & body',
+  subtitle: (
+    <>
+      Make that the montro of your life <br />
+      and let us help you attain tranquillity
+    </>
+  ),
   cta: {
     children: 'Learn More',
     onClick: () =>

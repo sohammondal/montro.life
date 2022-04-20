@@ -20,7 +20,7 @@ const navLinks = [
   },
   {
     title: 'Trainers',
-    href: `#${sectionIds.trainers}`,
+    href: `#${sectionIds.aboutAindrilla}`,
   },
   {
     title: 'Contact Us',

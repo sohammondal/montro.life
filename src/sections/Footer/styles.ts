@@ -29,6 +29,11 @@ export const containerStyles = {
   outerStyles: css`
     min-height: 80vh;
     position: relative;
+
+    ${media.tabletPortrait} {
+      min-height: unset;
+    }
+
     ${media.tabletLandscape} {
       min-height: 71vh;
     }

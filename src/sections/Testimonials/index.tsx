@@ -39,7 +39,7 @@ export const Testimonials = () => {
   return (
     <Container>
       <Parallax bgImage="/images/yoga-pose-6.png" strength={400}>
-        <Content>
+        <Content id={sectionIds.testimonials}>
           <Carousel />
         </Content>
       </Parallax>

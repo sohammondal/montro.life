@@ -63,15 +63,6 @@ export const ContentBox = styled.div`
     text-align: left;
   }
 
-  button {
-    background-color: ${(props) => props.theme.colors.BridalHealth};
-    border-color: ${(props) => props.theme.colors.BridalHealth};
-    :hover {
-      border-color: black;
-      color: black;
-    }
-  }
-
   ${media.tabletLandscape} {
     flex-basis: 45%;
     height: 75vh;

@@ -35,6 +35,10 @@ export const Slide = styled.div`
   padding: 50px;
   border-radius: 27px;
 
+  ${media.tabletPortrait} {
+    ${hw.custom(35, '%', 60)}
+  }
+
   ${media.desktop} {
     ${hw.half}
     justify-content: center;
@@ -120,7 +124,7 @@ export const Socials = styled.span`
     }
 
     :hover {
-      background-color: ${(props) => props.theme.colors.BridalHealth};
+      transform: scale(1.2);
     }
   }
 `

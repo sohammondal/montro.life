@@ -95,7 +95,10 @@ export const KnowAboutYoga = () => {
               </YogaPoses.Item.Wrapper>
             ))}
           </YogaPoses.List>
-          <Button onClick={() => scrollTo(sectionIds.trainers)}>
+          <Button
+            onClick={() => scrollTo(sectionIds.testimonials)}
+            variant="secondary"
+          >
             Know More
           </Button>
         </ContentBox>

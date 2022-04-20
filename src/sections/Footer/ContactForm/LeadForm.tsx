@@ -39,6 +39,7 @@ export const LeadForm: React.FC<FormProps> = (props) => {
         onClick={props.submitForm}
         isLoading={props.isSubmitting}
         disabled={props.isSubmitting}
+        variant="secondary"
       >
         Submit
       </Button>
