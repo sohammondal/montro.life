@@ -24,6 +24,6 @@ export const colors: IColors = {
   Mischka: '#D5D4D9',
   Black: '#000000',
   White: '#FFFFFF',
-  Caramel: '#FFD68A',
-  CaramelLite: '#ffd68a99',
+  Caramel: '#F5CE86',
+  CaramelLite: '#F5CE8699',
 }

@@ -88,7 +88,7 @@ export const links: Link[] = [
           {
             text: 'Instagram',
             Icon: FaInstagram,
-            href: 'https://www.instagram.com/montro.life/?hl=en',
+            href: 'https://www.instagram.com/montro.life/',
           },
           {
             text: 'LinkedIn',
@@ -98,7 +98,7 @@ export const links: Link[] = [
           {
             text: 'Youtube',
             Icon: FaYoutube,
-            href: 'https://www.youtube.com/channel/UCMj9VWaEvkPH1WPIaT68Q8Q',
+            href: 'https://www.youtube.com/channel/UCKGG07T0uaLUOzRIiQCZYUg',
           },
           {
             text: 'Facebook',

@@ -32,6 +32,7 @@ export const containerStyles = {
 
 export const MediaBox = styled.div`
   flex-basis: 40%;
+  margin-right: 1%;
 `
 
 export const ContentBox = styled.article`

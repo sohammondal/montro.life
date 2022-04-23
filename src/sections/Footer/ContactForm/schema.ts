@@ -9,9 +9,9 @@ import {
 } from 'helpers'
 
 const errorMessages = {
-  name: `Enter your full name. Eg. John Doe`,
+  name: `Enter your full name. Eg. Aindrilla Das`,
   number: 'Enter a valid phone number. Eg. 7003355200',
-  email: 'Enter a valid email. Eg. john.doe@gmail.com',
+  email: 'Enter a valid email. Eg. aindrilla.das@gmail.com',
   message: `Enter your message`,
 }
 

@@ -63,10 +63,17 @@ export const Logo = {
     position: relative;
     ${hw.custom(7, 'rem')}
     ${flexRowCenter}
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    ${cursor.pointer}
+    transition: 0.5s ease;
     svg {
       position: absolute;
       z-index: 1;
       ${hw.custom(10, 'rem')}
+    }
+
+    :hover {
+      filter: unset;
     }
   `,
 }
@@ -74,7 +81,12 @@ export const Logo = {
 export const FooterContent = {
   Wrapper: styled.div`
     ${flexColCenter}
+    flex-direction: column-reverse;
     padding-top: 3rem;
+
+    ${media.tabletPortrait} {
+      flex-direction: column;
+    }
 
     ${media.tabletLandscape} {
       ${flexRow}
@@ -158,7 +170,7 @@ export const FooterContent = {
       flex-basis: 55%;
       justify-content: flex-start;
       align-content: space-between;
-      height: 52vh;
+      min-height: 52vh;
       order: unset;
       > .vertical-list {
         margin-top: 0;

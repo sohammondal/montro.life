@@ -30,7 +30,7 @@ export const Hero: React.FC<Props> = (props) => {
         <NextImage
           width="100%"
           height="100%"
-          src={'/images/yoga-pose-hero-3.png'}
+          src={'/images/yoga-pose-hero.png'}
           objectFit="contain"
           layout="responsive"
         />

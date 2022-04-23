@@ -1,4 +1,5 @@
 import NextImage from 'next/image'
+import Link from 'next/link'
 import Wave from 'react-wavify'
 
 import { Container, Logo as AppLogo } from 'components'
@@ -20,7 +21,12 @@ const itemRenderer = (item: Item, key: number, horizontal = false) => (
   <li key={`${item?.text}-${key}`}>
     {item?.Icon && !horizontal && <item.Icon />}
     {item?.Icon && horizontal && (
-      <a href={item?.href} data-has-href={!!item?.href}>
+      <a
+        href={item?.href}
+        data-has-href={!!item?.href}
+        target="_blank"
+        rel="noreferrer"
+      >
         <item.Icon />
       </a>
     )}
@@ -51,15 +57,17 @@ export const Footer: React.FC<IOuterContainer> = ({ bgColor }) => {
       />
       <Container divider {...containerStyles} bgColor={bgColor}>
         <Logo.Box>
-          <Logo.Wrapper>
-            <NextImage
-              src={'/images/blob.png'}
-              layout="fill"
-              objectFit="contain"
-              className="blob-bg"
-            />
-            <AppLogo fill="black" />
-          </Logo.Wrapper>
+          <Link href="/" passHref>
+            <Logo.Wrapper>
+              <NextImage
+                src={'/images/blobs/logo-blob.png'}
+                layout="fill"
+                objectFit="contain"
+                className="blob-bg"
+              />
+              <AppLogo fill="black" />
+            </Logo.Wrapper>
+          </Link>
         </Logo.Box>
         <FooterContent.Wrapper>
           <FooterContent.LeftSection>
