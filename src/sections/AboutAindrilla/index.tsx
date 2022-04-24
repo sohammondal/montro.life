@@ -2,10 +2,14 @@ import NextImage from 'next/image'
 import React from 'react'
 import { FaInfo } from 'react-icons/fa'
 
+import Aindrilla from 'assets/images/aindrilla.png'
 import { Body, Container, H1, H4, Tooltip } from 'components'
 import { sectionIds } from 'constant'
 
 import { containerStyles, ContentBox, MediaBox, Skill, Skills } from './styles'
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+// const Aindrilla = require('assets/images/aindrilla.png')
 
 const skills = [
   'Weight Loss',
@@ -27,11 +31,12 @@ export const AboutAindrilla = () => {
     <Container {...containerStyles} id={sectionIds.aboutAindrilla}>
       <MediaBox>
         <NextImage
-          src={`/images/aindrilla.png`}
+          src={Aindrilla}
           layout="responsive"
           width={'100%'}
           height={'100%'}
           objectFit="contain"
+          placeholder="blur"
         />
       </MediaBox>
       <ContentBox>
