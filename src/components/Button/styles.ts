@@ -25,6 +25,14 @@ const variantStyles: Record<ButtonVariants, CSSProp> = {
   `,
 }
 
+const disabledStyles = css`
+  opacity: 0.5;
+  cursor: not-allowed;
+  :hover {
+    box-shadow: unset;
+  }
+`
+
 export const buttonStyles = css<Props>`
   font-family: Poppins;
   font-weight: unset;
@@ -40,12 +48,14 @@ export const buttonStyles = css<Props>`
   ${(props) => {
     return css`
       color: ${props.theme.colors.Black};
+      ${variantStyles[props.variant || 'primary']}
       ${props.isLoading &&
       css`
         padding: 0;
         line-height: 0;
+        ${disabledStyles}
       `};
-      ${variantStyles[props.variant || 'primary']}
+      ${props.disabled && disabledStyles}
     `
   }}
 `

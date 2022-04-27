@@ -11,7 +11,7 @@ import {
 const errorMessages = {
   name: `Enter your full name. Eg. Aindrilla Das`,
   number: 'Enter a valid phone number. Eg. 7003355200',
-  email: 'Enter a valid email. Eg. aindrilla.das@gmail.com',
+  email: 'Enter a valid email. Eg. contact@montro.life',
   message: `Enter your message`,
 }
 
@@ -29,13 +29,7 @@ export const ClubFormSchema = Yup.object({
   email: Yup.string()
     .test('isValidEmail', errorMessages.email, (val) => isValidEmail(val || ''))
     .required(errorMessages.email),
-  message: Yup.string()
-    .test(
-      'hasAtLeast10Characters',
-      errorMessages.message,
-      (val) => (val || '').length >= 10
-    )
-    .required(errorMessages.message),
+  message: Yup.string().required(errorMessages.message),
   receive_wa_updates: Yup.boolean(),
 })
 

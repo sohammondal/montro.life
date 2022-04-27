@@ -8,6 +8,7 @@ import { OrientationError } from 'sections'
 import { GlobalStyles } from 'theme'
 import { PageDataProps } from 'types'
 
+import 'notyf/notyf.min.css'
 import 'react-loading-skeleton/dist/skeleton.css'
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
