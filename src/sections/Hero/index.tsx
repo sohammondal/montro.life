@@ -33,6 +33,8 @@ export const Hero: React.FC<Props> = (props) => {
           src={'/images/yoga-pose-hero.png'}
           objectFit="contain"
           layout="responsive"
+          loading="eager"
+          priority
         />
       </MediaBox>
     </Container>
