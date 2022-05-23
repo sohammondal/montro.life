@@ -2,9 +2,11 @@ import { DefaultSeo, NextSeo } from 'next-seo'
 import type { AppProps as NextAppProps } from 'next/app'
 import { DefaultTheme, ThemeProvider } from 'styled-components'
 
+import { config } from 'config'
 import { AppProvider, useAppContext } from 'context'
 import { defaultSeoConfig } from 'data'
 import { OrientationError } from 'sections'
+import { GoogleAnalytics, GoogleTM, Hotjar } from 'sections/Analytics'
 import { GlobalStyles } from 'theme'
 import { PageDataProps } from 'types'
 
@@ -22,10 +24,15 @@ function MyApp(props: AppProps<PageDataProps>) {
   const appProviderProps = {}
 
   return (
-    <AppProvider {...appProviderProps}>
-      <DefaultSeo {...defaultSeoConfig} />
-      <MyComponent {...restProps} pageProps={restPageProps} />
-    </AppProvider>
+    <>
+      <GoogleAnalytics />
+      <GoogleTM />
+      <Hotjar />
+      <AppProvider {...appProviderProps}>
+        <DefaultSeo {...defaultSeoConfig} />
+        <MyComponent {...restProps} pageProps={restPageProps} />
+      </AppProvider>
+    </>
   )
 }
 
@@ -34,6 +41,16 @@ function MyComponent({ Component, pageProps }: AppProps) {
 
   return (
     <>
+      {/* <!-- Google Tag Manager (noscript) --> */}
+      <noscript>
+        <iframe
+          src={`https://www.googletagmanager.com/ns.html?id=${config.GTM_CODE}`}
+          height="0"
+          width="0"
+          style={{ display: 'none', visibility: 'hidden' }}
+        ></iframe>
+      </noscript>
+      {/* <!-- End Google Tag Manager (noscript) --> */}
       {pageProps.seo && <NextSeo {...pageProps.seo} />}
       <ThemeProvider theme={theme || ({} as DefaultTheme)}>
         <GlobalStyles />

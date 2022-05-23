@@ -18,11 +18,12 @@ export const LeadForm: React.FC<FormProps> = (props) => {
     <FormContainer>
       <Input placeholder="Name" {...getInputProps('name')} />
       <Input
+        type="tel"
         placeholder="Phone Number"
         maxLength={10}
         {...getInputProps('phone_number')}
       />
-      <Input placeholder="Email" {...getInputProps('email')} />
+      <Input placeholder="Email" {...getInputProps('email')} type="email" />
       <Input placeholder="Your Message" {...getInputProps('message')} />
       <Checkbox
         selected={props.values.receive_wa_updates || false}

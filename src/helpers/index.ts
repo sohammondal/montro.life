@@ -1,4 +1,5 @@
-import { Errors, config } from 'constant'
+import { config } from 'config'
+import { Errors } from 'constant'
 
 export * from './window'
 export * from './name'

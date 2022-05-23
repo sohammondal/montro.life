@@ -2,6 +2,8 @@ import { Formik } from 'formik'
 import { Notyf } from 'notyf' //
 import React from 'react'
 
+import { config } from 'config'
+
 import { LeadForm } from './LeadForm'
 import { initialFormValues, ClubFormSchema } from './schema'
 
@@ -34,7 +36,7 @@ export const ContactForm = () => {
             },
           }
 
-          const response = await fetch(process.env.API_BASE_URL + '/lead', {
+          const response = await fetch(config.API_BASE_URL + '/lead', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',

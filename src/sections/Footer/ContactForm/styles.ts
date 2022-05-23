@@ -1,21 +1,25 @@
 import styled, { css } from 'styled-components'
 
-import { display, flexColCenter, media } from 'theme'
+import { flexColCenter, media } from 'theme'
 
 export const FormContainer = styled.div`
   ${flexColCenter}
-  padding: 0 1%;
   width: 100%;
 
   .input-wrapper {
     margin-bottom: 1rem;
-    width: 100%;
+  }
+
+  .checkbox-wrapper,
+  .input-wrapper {
+    width: 95%;
   }
 
   ${media.tabletPortrait} {
-    ${display.block}
-    padding: 0;
-    text-align: center;
+    .checkbox-wrapper,
+    .input-wrapper {
+      width: 100%;
+    }
   }
 
   ${media.tabletLandscape} {

@@ -9,7 +9,7 @@ import Document, {
 import React from 'react'
 import { ServerStyleSheet } from 'styled-components'
 
-import { config } from 'constant'
+import { config } from 'config'
 
 const fonts = [
   'Afterglow-Regular.woff2',

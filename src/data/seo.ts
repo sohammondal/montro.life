@@ -1,4 +1,4 @@
-import { config } from 'constant'
+import { config } from 'config'
 import { NextSeoProps } from 'types'
 
 export const defaultSeoConfig: NextSeoProps = {

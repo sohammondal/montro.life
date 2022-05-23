@@ -22,5 +22,8 @@
     "smoothscroll",
     "Swipeable",
     "swiper"
-  ]
+  ],
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }

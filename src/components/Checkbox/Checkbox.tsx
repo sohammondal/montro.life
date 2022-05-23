@@ -42,7 +42,7 @@ export const Checkbox = (props: Props): React.ReactElement => {
   )
 
   return (
-    <Container className="checkbox-container">
+    <Container className="checkbox-wrapper">
       <StyledCheckbox {...checkBoxProps}>
         {selected && checkIcon}
       </StyledCheckbox>
