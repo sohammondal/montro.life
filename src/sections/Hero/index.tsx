@@ -1,6 +1,4 @@
-import NextImage from 'next/image'
-
-import { Button, Container, H1, H4 } from 'components'
+import { Button, Container, H1, H4, Image } from 'components'
 import { sectionIds } from 'constant'
 import { scrollTo } from 'helpers'
 import { IOuterContainer } from 'types'
@@ -27,14 +25,15 @@ export const Hero: React.FC<Props> = (props) => {
         {props.cta && <Button {...props.cta} />}
       </ContentBox>
       <MediaBox>
-        <NextImage
-          width="100%"
-          height="100%"
+        <Image
+          width={600}
+          height={600}
           src={'/images/yoga-pose-hero.png'}
           objectFit="contain"
-          layout="responsive"
+          layout="intrinsic"
           loading="eager"
           priority
+          alt="Aindrilla Das doing yoga pose"
         />
       </MediaBox>
     </Container>

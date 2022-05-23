@@ -2,7 +2,7 @@ import NextImage from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 
-import { Container } from 'components'
+import { Container } from 'components/Container'
 import { HamburgerMenu } from 'components/HamburgerMenu'
 import { Logo } from 'components/Logo'
 import { sectionIds } from 'constant'
@@ -41,6 +41,7 @@ export const Header = () => {
             height="100%"
             loading="eager"
             priority
+            alt="logo blob background"
           />
           <Logo fill="black" />
         </LogoWrapper>

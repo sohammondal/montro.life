@@ -1,8 +1,7 @@
-import NextImage from 'next/image'
 import React from 'react'
 import Waves from 'react-wavify'
 
-import { Body, Button, Container, H1, H4 } from 'components'
+import { Body, Button, Container, H1, H4, Image } from 'components'
 import { sectionIds } from 'constant'
 import { scrollTo } from 'helpers'
 import { colors } from 'theme'
@@ -66,12 +65,13 @@ export const KnowAboutYoga = () => {
       <Waves {...wavesProps} id={sectionIds.aboutYoga} />
       <Container {...containerStyles}>
         <MediaBox>
-          <NextImage
+          <Image
             src={`/images/yoga-pose-3.png`}
-            layout="responsive"
-            width="100%"
-            height="100%"
+            layout="intrinsic"
+            width={500}
+            height={500}
             objectFit="contain"
+            alt="Aindrilla Das doing yoga"
           />
         </MediaBox>
         <ContentBox>
@@ -85,7 +85,11 @@ export const KnowAboutYoga = () => {
             {yogaPoses.map((yogaPose, idx) => (
               <YogaPoses.Item.Wrapper key={`yoga-pose-${idx}`}>
                 <YogaPoses.Item.Illustration>
-                  <NextImage src={yogaPose.image.src} layout="fill" />
+                  <Image
+                    layout="fill"
+                    src={yogaPose.image.src}
+                    alt={`yoga-illustration-${idx}`}
+                  />
                 </YogaPoses.Item.Illustration>
                 <YogaPoses.Item.Content>
                   <Body bold font="Afterglow">
