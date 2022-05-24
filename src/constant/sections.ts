@@ -4,4 +4,5 @@ export const sectionIds = {
   trainers: 'trainers',
   contactForm: 'contact-form',
   aboutAindrilla: 'about-aindrilla',
+  hero: 'hero',
 }

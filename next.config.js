@@ -13,6 +13,22 @@ const nextConfig = {
   images: {
     domains: [],
   },
+  webpack: (config) => {
+    // Important: return the modified config
+    config.module.rules.push({
+      test: /\.(png|jpe?g|gif|mp4)$/i,
+      use: [
+        {
+          loader: 'file-loader',
+          options: {
+            publicPath: '/_next',
+            name: 'static/media/[name].[hash].[ext]',
+          },
+        },
+      ],
+    })
+    return config
+  },
 }
 
 module.exports = nextConfig
