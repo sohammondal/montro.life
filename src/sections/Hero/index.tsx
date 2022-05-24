@@ -1,6 +1,7 @@
 import { Button, Container, H1, H4, Image } from 'components'
 import { sectionIds } from 'constant'
 import { scrollTo } from 'helpers'
+import yogaPoseHero from 'images/yoga-pose-hero.png'
 import { IOuterContainer } from 'types'
 
 import { ContentBox, MediaBox, containerStyles } from './styles'
@@ -13,6 +14,7 @@ interface Props extends IOuterContainer {
 }
 
 export const Hero: React.FC<Props> = (props) => {
+  const images = props.images || {}
   return (
     <Container
       bgColor={props.bgColor}
@@ -26,14 +28,15 @@ export const Hero: React.FC<Props> = (props) => {
       </ContentBox>
       <MediaBox>
         <Image
+          {...images.hero}
           width={600}
           height={600}
-          src={'/images/yoga-pose-hero.png'}
+          src={yogaPoseHero}
           objectFit="contain"
           layout="intrinsic"
-          loading="eager"
           priority
-          alt="Aindrilla Das doing yoga pose"
+          alt="Aindrilla Das doing One legged King Pegion pose (Eka pada rajakopatasana)"
+          placeholder="blur"
         />
       </MediaBox>
     </Container>
