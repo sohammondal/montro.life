@@ -4,19 +4,13 @@ import Waves from 'react-wavify'
 import { Body, Button, Container, H1, H4, Image } from 'components'
 import { sectionIds } from 'constant'
 import { scrollTo } from 'helpers'
-import yogaLineIcon1 from 'images/icons/yoga-line-icon-1.png'
-import yogaLineIcon2 from 'images/icons/yoga-line-icon-2.png'
-import yogaLineIcon3 from 'images/icons/yoga-line-icon-3.png'
-import yogaLineIcon4 from 'images/icons/yoga-line-icon-4.png'
-import aboutYoga from 'images/yoga-pose-3.png'
 import { colors } from 'theme'
-import { IOuterContainer } from 'types'
 
 import { containerStyles, MediaBox, ContentBox, YogaPoses } from './styles'
 
 export const yogaPoses = [
   {
-    image: { src: yogaLineIcon1 },
+    image: { src: '/images/icons/yoga-line-icon-1.png' },
     title: (
       <>
         Strong <br />
@@ -26,12 +20,12 @@ export const yogaPoses = [
     subtitle: 'Lorem Ipsum Text',
   },
   {
-    image: { src: yogaLineIcon2 },
+    image: { src: '/images/icons/yoga-line-icon-2.png' },
     title: 'Increased Flexibility',
     subtitle: 'Lorem Ipsum Text',
   },
   {
-    image: { src: yogaLineIcon3 },
+    image: { src: '/images/icons/yoga-line-icon-3.png' },
     title: (
       <>
         Healthy <br />
@@ -41,7 +35,7 @@ export const yogaPoses = [
     subtitle: 'Lorem Ipsum Text',
   },
   {
-    image: { src: yogaLineIcon4 },
+    image: { src: '/images/icons/yoga-line-icon-4.png' },
     title: (
       <>
         Live <br />
@@ -65,22 +59,19 @@ const wavesProps = {
   },
 }
 
-export const KnowAboutYoga: React.FC<IOuterContainer> = (props) => {
-  const images = props.images || {}
+export const KnowAboutYoga = () => {
   return (
     <>
       <Waves {...wavesProps} id={sectionIds.aboutYoga} />
       <Container {...containerStyles}>
         <MediaBox>
           <Image
-            {...images[sectionIds.aboutYoga]}
-            src={aboutYoga}
+            src={`/images/yoga-pose-3.png`}
             layout="intrinsic"
             width={500}
             height={500}
             objectFit="contain"
-            alt="Aindrilla Das Cow Face pose (Gomukhasana)"
-            placeholder="blur"
+            alt="Aindrilla Das doing yoga"
           />
         </MediaBox>
         <ContentBox>

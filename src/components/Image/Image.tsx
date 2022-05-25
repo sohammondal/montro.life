@@ -7,7 +7,6 @@ interface WrapperProps {
   wrapperStyles?: CSSProp
   border?: number | string
   boxshadow?: string
-  hideSkeleton?: boolean
 }
 
 const Wrapper = styled.div<WrapperProps>`
@@ -41,7 +40,6 @@ export const Image: React.FC<WrapperProps & ImageProps> = ({
   layout,
   width,
   height,
-  hideSkeleton,
   ...props
 }) => {
   const [loading, setLoading] = useState(true)
@@ -54,7 +52,7 @@ export const Image: React.FC<WrapperProps & ImageProps> = ({
   return (
     <Wrapper css={wrapperStyles} boxshadow={boxshadow} border={border}>
       <NxtImg onLoadingComplete={() => setLoading(false)} {...nextImgProps} />
-      {loading && !hideSkeleton && (
+      {loading && (
         <Skeleton
           width="100%"
           height="100%"
@@ -74,5 +72,4 @@ Image.defaultProps = {
   width: '100%',
   height: '100%',
   quality: 100,
-  hideSkeleton: true,
 }
