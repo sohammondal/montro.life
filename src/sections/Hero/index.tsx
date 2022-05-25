@@ -28,13 +28,14 @@ export const Hero: React.FC<Props> = (props) => {
       </ContentBox>
       <MediaBox>
         <NextImage
-          width="100%"
-          height="100%"
+          width={600}
+          height={600}
           src={'/images/yoga-pose-hero.png'}
           objectFit="contain"
-          layout="responsive"
-          loading="eager"
+          layout="intrinsic"
           priority
+          alt="Aindrilla Das doing One legged King Pigeon pose (Eka pada rajakopatasana)"
+          title="Aindrilla Das doing One legged King Pigeon pose (Eka pada rajakopatasana)"
         />
       </MediaBox>
     </Container>

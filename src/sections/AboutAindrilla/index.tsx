@@ -28,10 +28,12 @@ export const AboutAindrilla = () => {
       <MediaBox>
         <NextImage
           src={`/images/aindrilla.png`}
-          layout="responsive"
-          width={'100%'}
-          height={'100%'}
+          layout="intrinsic"
+          width={500}
+          height={500}
           objectFit="contain"
+          alt="Aindrilla Das doing Warrior pose (Veer vadrasana)"
+          title="Aindrilla Das doing Warrior pose (Veer vadrasana)"
         />
       </MediaBox>
       <ContentBox>
