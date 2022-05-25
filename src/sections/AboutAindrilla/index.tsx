@@ -1,7 +1,8 @@
+import NextImage from 'next/image'
 import React from 'react'
 import { FaInfo } from 'react-icons/fa'
 
-import { Body, Container, H1, H4, Tooltip, Image } from 'components'
+import { Body, Container, H1, H4, Tooltip } from 'components'
 import { sectionIds } from 'constant'
 
 import { containerStyles, ContentBox, MediaBox, Skill, Skills } from './styles'
@@ -25,13 +26,12 @@ export const AboutAindrilla = () => {
   return (
     <Container {...containerStyles} id={sectionIds.aboutAindrilla}>
       <MediaBox>
-        <Image
+        <NextImage
           src={`/images/aindrilla.png`}
-          layout="intrinsic"
-          width={500}
-          height={500}
+          layout="responsive"
+          width={'100%'}
+          height={'100%'}
           objectFit="contain"
-          alt="Meet Aindrilla Das"
         />
       </MediaBox>
       <ContentBox>

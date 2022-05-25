@@ -27,7 +27,8 @@ export const ErrorPage: React.FC<Props> = (props) => {
     >
       {props.imgSrc && (
         <Image
-          objectFit="contain"
+          fs
+          fit="contain"
           css={imageStyles}
           src={props.imgSrc}
           alt={props.imgAlt}
@@ -35,7 +36,7 @@ export const ErrorPage: React.FC<Props> = (props) => {
           border={0}
         />
       )}
-      <Content hasImage={!!props.imgSrc}>
+      <Content>
         <ErrorCode>{props.code}</ErrorCode>
         <Body css={bodyStyles} bold>
           {props.message}
@@ -64,7 +65,7 @@ export const OrientationError = () => {
 ErrorPage.defaultProps = {
   message: 'Page not found, something has been edited or removed',
   code: 101,
-  imgSrc: '',
+  imgSrc: '/images/illustrations/error.png',
   imgAlt: 'error-illustration',
   showCta: true,
 }

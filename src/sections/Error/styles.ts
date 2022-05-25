@@ -35,18 +35,14 @@ export const imageStyles = css`
   }
 `
 
-export const Content = styled.div<{ hasImage: boolean }>`
+export const Content = styled.div`
   ${flexColCenter}
   flex:1;
   max-width: 400px;
 
   ${media.tabletPortrait} {
-    ${(props) =>
-      props.hasImage &&
-      css`
-        ${display.block}
-        margin-left: ${(props) => props.theme.spacings['44']};
-      `}
+    ${display.block}
+    margin-left: ${(props) => props.theme.spacings['44']};
   }
 `
 
