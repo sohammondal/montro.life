@@ -24,22 +24,6 @@ export interface PageDataProps {
   seo?: NextSeoProps
 }
 
-export interface ImageProps {
-  blurDataURL: string
-  src: string
-  type: string
-  height: number
-  width: number
-}
 export interface IOuterContainer {
   bgColor?: 'primary' | 'secondary'
-  images?: {
-    [x: string]: {
-      blurDataURL: string
-      src: string
-      height: number
-      width: number
-      type?: string | undefined
-    }
-  }
 }

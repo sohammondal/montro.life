@@ -3,8 +3,6 @@ import { FaInfo } from 'react-icons/fa'
 
 import { Body, Container, H1, H4, Tooltip, Image } from 'components'
 import { sectionIds } from 'constant'
-import aindrilla from 'images/aindrilla.png'
-import { IOuterContainer } from 'types'
 
 import { containerStyles, ContentBox, MediaBox, Skill, Skills } from './styles'
 
@@ -23,20 +21,17 @@ const skills = [
   </>,
 ]
 
-export const AboutAindrilla: React.FC<IOuterContainer> = (props) => {
-  const images = props.images || {}
+export const AboutAindrilla = () => {
   return (
     <Container {...containerStyles} id={sectionIds.aboutAindrilla}>
       <MediaBox>
         <Image
-          {...images[sectionIds.aboutAindrilla]}
-          src={aindrilla}
+          src={`/images/aindrilla.png`}
           layout="intrinsic"
           width={500}
           height={500}
           objectFit="contain"
-          alt="Aindrilla Das doing Warrior pose (Veer vadrasana)"
-          placeholder="blur"
+          alt="Meet Aindrilla Das"
         />
       </MediaBox>
       <ContentBox>
