@@ -17,6 +17,7 @@ export const Image = styled.img<Props>`
   -webkit-user-drag: none;
 `
 
+
 Image.defaultProps = {
   border: 24,
   fit: 'cover',
