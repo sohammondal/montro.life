@@ -1,3 +1,4 @@
+import { SessionProvider } from 'next-auth/react'
 import { DefaultSeo, NextSeo } from 'next-seo'
 import type { AppProps as NextAppProps } from 'next/app'
 import { DefaultTheme, ThemeProvider } from 'styled-components'
@@ -36,7 +37,10 @@ function MyApp(props: AppProps<PageDataProps>) {
   )
 }
 
-function MyComponent({ Component, pageProps }: AppProps) {
+function MyComponent({
+  Component,
+  pageProps: { session, ...pageProps },
+}: AppProps) {
   const { theme } = useAppContext()
 
   return (
@@ -56,7 +60,9 @@ function MyComponent({ Component, pageProps }: AppProps) {
         <GlobalStyles />
         <OrientationError />
         <main id="app">
-          <Component {...pageProps} />
+          <SessionProvider session={session}>
+            <Component {...pageProps} />
+          </SessionProvider>
         </main>
       </ThemeProvider>
     </>
