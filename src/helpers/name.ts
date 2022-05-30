@@ -2,6 +2,7 @@ export const parseFullName = (name: string) => {
   const parsedName = {
     firstName: '',
     lastName: '',
+    initials: '',
   }
 
   if (!name) return parsedName
@@ -25,6 +26,9 @@ export const parseFullName = (name: string) => {
   return {
     firstName: parsedName.firstName.trim(),
     lastName: parsedName.lastName.trim(),
+    initials: `${parsedName.firstName.charAt(0)}${parsedName.lastName.charAt(
+      0
+    )}`,
   }
 }
 

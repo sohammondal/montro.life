@@ -2,9 +2,12 @@ import { DefaultSeo, NextSeo } from 'next-seo'
 import type { AppProps as NextAppProps } from 'next/app'
 import { DefaultTheme, ThemeProvider } from 'styled-components'
 
+import { Loader } from 'components/Loader'
+import { ModalProvider, BaseModalBackground } from 'components/Modal'
 import { config } from 'config'
 import { AppProvider, useAppContext } from 'context'
 import { defaultSeoConfig } from 'data'
+import { useRouteChangeTracker } from 'hooks/useRouteChangeTracker'
 import { OrientationError } from 'sections'
 import { GoogleAnalytics, GoogleTM, Hotjar } from 'sections/Analytics'
 import { GlobalStyles } from 'theme'
@@ -12,6 +15,8 @@ import { PageDataProps } from 'types'
 
 import 'notyf/notyf.min.css'
 import 'react-loading-skeleton/dist/skeleton.css'
+import '@szhsin/react-menu/dist/index.css'
+import '@szhsin/react-menu/dist/transitions/slide.css'
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type AppProps<P = any> = {
@@ -21,16 +26,17 @@ type AppProps<P = any> = {
 function MyApp(props: AppProps<PageDataProps>) {
   const { pageProps, ...restProps } = props
   const { ...restPageProps } = pageProps
-  const appProviderProps = {}
 
   return (
     <>
       <GoogleAnalytics />
       <GoogleTM />
       <Hotjar />
-      <AppProvider {...appProviderProps}>
-        <DefaultSeo {...defaultSeoConfig} />
-        <MyComponent {...restProps} pageProps={restPageProps} />
+      <AppProvider>
+        <ModalProvider backgroundComponent={BaseModalBackground}>
+          <DefaultSeo {...defaultSeoConfig} />
+          <MyComponent {...restProps} pageProps={restPageProps} />
+        </ModalProvider>
       </AppProvider>
     </>
   )
@@ -38,6 +44,7 @@ function MyApp(props: AppProps<PageDataProps>) {
 
 function MyComponent({ Component, pageProps }: AppProps) {
   const { theme } = useAppContext()
+  const { isRouteChanging } = useRouteChangeTracker()
 
   return (
     <>
@@ -53,6 +60,7 @@ function MyComponent({ Component, pageProps }: AppProps) {
       {/* <!-- End Google Tag Manager (noscript) --> */}
       {pageProps.seo && <NextSeo {...pageProps.seo} />}
       <ThemeProvider theme={theme || ({} as DefaultTheme)}>
+        <Loader isOpen={isRouteChanging} />
         <GlobalStyles />
         <OrientationError />
         <main id="app">

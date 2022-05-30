@@ -9,6 +9,7 @@ import React, {
 import smoothscroll from 'smoothscroll-polyfill'
 import { DefaultTheme } from 'styled-components'
 
+import { getUserFromCookies } from 'helpers/user'
 import { theme, Themes } from 'theme'
 import { PageDataProps, UserInfo } from 'types'
 
@@ -16,8 +17,8 @@ export interface IAppContext extends PageDataProps {
   theme?: DefaultTheme
   isDark?: boolean
   toggleTheme?: () => void
-  userInfo?: UserInfo
-  setUserInfo?: Dispatch<SetStateAction<UserInfo>>
+  user: UserInfo | null
+  setUser: Dispatch<SetStateAction<UserInfo | null>>
 }
 
 export const AppContext: React.Context<IAppContext> = createContext(
@@ -26,12 +27,14 @@ export const AppContext: React.Context<IAppContext> = createContext(
 
 export const useAppContext = (): IAppContext => useContext(AppContext)
 
-export const AppProvider: React.FC<IAppContext> = ({ children, ...props }) => {
+export const AppProvider: React.FC = ({ children }) => {
   const [isDark, setIsDark] = useState(false)
   const toggleTheme = () => {
     setIsDark(!isDark)
   }
-  const [userInfo, setUserInfo] = useState({} as UserInfo)
+  const [user, setUser] = useState<UserInfo | null>(
+    getUserFromCookies() || ({} as UserInfo)
+  )
 
   useEffect(() => {
     // kick off the polyfill!
@@ -44,9 +47,8 @@ export const AppProvider: React.FC<IAppContext> = ({ children, ...props }) => {
         theme: { ...theme, mode: isDark ? Themes.DARK : Themes.LIGHT },
         isDark,
         toggleTheme,
-        userInfo,
-        setUserInfo,
-        ...props,
+        user,
+        setUser,
       }}
     >
       {children}

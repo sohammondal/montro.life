@@ -1,16 +1,8 @@
 import React from 'react'
-import styled, { css, CSSProp } from 'styled-components'
+import styled, { css } from 'styled-components'
 
 import { media } from 'theme'
 import { IOuterContainer } from 'types'
-
-interface IContainer extends IOuterContainer {
-  divider?: boolean
-  innerStyles?: CSSProp
-  outerStyles?: CSSProp
-  dividerStyles?: CSSProp
-  id?: string
-}
 
 export const InnerContainer = styled.div`
   max-width: 1280px;
@@ -43,7 +35,7 @@ export const OuterContainer = styled.section<IOuterContainer>`
   `}
 `
 
-export const Container: React.FC<IContainer> = ({
+export const Container: React.FC<IOuterContainer> = ({
   outerStyles,
   innerStyles,
   bgColor,
