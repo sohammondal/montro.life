@@ -15,7 +15,7 @@ const errorMessages = {
   message: `Enter your message`,
 }
 
-export const ClubFormSchema = Yup.object({
+export const ContactFromSchema = Yup.object({
   name: Yup.string()
     .test('fullNameValidation', errorMessages.name, (val) =>
       isFullName(val || '')
@@ -33,7 +33,7 @@ export const ClubFormSchema = Yup.object({
   receive_wa_updates: Yup.boolean(),
 })
 
-export type IForm = Yup.Asserts<typeof ClubFormSchema>
+export type IForm = Yup.Asserts<typeof ContactFromSchema>
 
 export type FormKeys = ExtractStringPropertyNames<IForm>
 
