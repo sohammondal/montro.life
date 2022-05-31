@@ -32,3 +32,12 @@ export const updateUser = (
   query: Record<string, unknown>,
   payload: Record<string, unknown>
 ) => heroku.put(`/users/${userId}?${qs.stringify(query)}`, payload)
+
+export const markAttendance = (payload: Record<string, unknown>) =>
+  heroku.post('/attendances', {
+    data: payload,
+  })
+
+export const getUsers = async (query?: Record<string, unknown>) => {
+  return heroku.get(`/users?${qs.stringify(query)}`)
+}

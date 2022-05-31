@@ -1,6 +1,5 @@
 import { Formik } from 'formik'
 import { setCookie } from 'nookies'
-import { Notyf } from 'notyf' //
 import React, { useEffect, useState, useRef } from 'react'
 
 import { updateUser } from 'api/axios'
@@ -9,6 +8,7 @@ import { Input } from 'components/Input'
 import { Modal } from 'components/Modal'
 import { H3 } from 'components/Typography'
 import { useAppContext } from 'context'
+import { toast } from 'helpers/toast' //
 import { defaultCookieOptions } from 'helpers/user'
 
 import { FormKeys, initialFormValues, UserInfoFormSchema } from './schema'
@@ -36,10 +36,6 @@ export const UserOnboardingForm = () => {
         }}
         validationSchema={UserInfoFormSchema}
         onSubmit={async (values, actions) => {
-          const toast = new Notyf({
-            dismissible: true,
-            duration: 5000,
-          })
           try {
             actions.setSubmitting(true)
 
@@ -58,7 +54,7 @@ export const UserOnboardingForm = () => {
               payload
             )
 
-            toast.success('Thank you!')
+            toast?.success('Thank you!')
 
             setCookie(
               null,
@@ -75,7 +71,7 @@ export const UserOnboardingForm = () => {
             const message = axiosError?.message
               ? `${axiosError?.message} (${axiosError?.name}) - ${axiosError?.message}`
               : 'Oops! Something Went Wrong'
-            toast.error(message)
+            toast?.error(message)
           } finally {
             actions.setSubmitting(false)
           }

@@ -23,8 +23,13 @@ export const StyledInput = styled.input`
   }
 `
 
-export const bodyStyles = css`
+export const errorCss = css`
   height: 10px;
   color: ${(props) => props.theme.colors.Orange};
   margin: 5px 0 2px 10px;
+`
+
+export const labelCss = css`
+  margin: 5px 0 2px 10px;
+  color: ${(props) => props.theme.colors.Black};
 `
