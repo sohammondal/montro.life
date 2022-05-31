@@ -1,11 +1,7 @@
 import { FormikProps } from 'formik'
 import * as Yup from 'yup'
 
-import {
-  isValidMobileNumber,
-  isFullName,
-  ExtractStringPropertyNames,
-} from 'helpers'
+import { isValidMobileNumber, isFullName } from 'helpers'
 
 const errorMessages = {
   name: `Enter your full name. Eg. Aindrilla Das`,
@@ -27,7 +23,7 @@ export const UserInfoFormSchema = Yup.object({
 
 export type IForm = Yup.Asserts<typeof UserInfoFormSchema>
 
-export type FormKeys = ExtractStringPropertyNames<IForm>
+export type FormKeys = keyof IForm
 
 export type FormProps = FormikProps<IForm>
 

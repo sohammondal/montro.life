@@ -1,32 +1,23 @@
-import React, { InputHTMLAttributes } from 'react'
+import React from 'react'
+import ReactSelectSearch, { SelectSearchProps } from 'react-select-search'
 
-import { Wrapper, LoaderWrapper, StyledSelect, bodyStyles } from './styles'
+import { Body } from 'components/Typography'
 
-import { Spinner } from '../Spinner'
-import { Body } from '../Typography'
+import { Wrapper, bodyStyles } from './styles'
 
-interface Props extends InputHTMLAttributes<HTMLSelectElement> {
-  isLoading?: boolean
+interface RSSelectProps extends SelectSearchProps {
   error?: boolean
   errorMessage?: string
 }
 
-export const Select: React.FC<Props> = ({
+export const Select: React.FC<RSSelectProps> = ({
   error,
   errorMessage,
-  placeholder,
-  children,
   ...props
 }) => {
   return (
     <Wrapper className="select-wrapper">
-      <LoaderWrapper>{props.isLoading && <Spinner />}</LoaderWrapper>
-      <StyledSelect value="" disabled={props.isLoading} {...props}>
-        <option key={`standard-default`} value="" disabled hidden>
-          {placeholder}
-        </option>
-        {children}
-      </StyledSelect>
+      <ReactSelectSearch {...props} />
       <Body variant="sm" bold css={bodyStyles}>
         {error && errorMessage}
       </Body>

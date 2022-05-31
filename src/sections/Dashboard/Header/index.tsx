@@ -21,7 +21,7 @@ export const DashboardNav = () => {
       <DashNav>
         <Menu
           menuButton={
-            <MenuButton className="avatar">
+            <MenuButton className="avatar" suppressHydrationWarning>
               {parseFullName(user?.name || '')?.initials}
             </MenuButton>
           }
