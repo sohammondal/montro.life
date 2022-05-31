@@ -15,7 +15,7 @@ import { containerStyles, btnCss, modalCss } from '../styles'
 
 export const ClientView = () => {
   const { user } = useAppContext()
-  const [open, setOpen] = useState(!false)
+  const [open, setOpen] = useState(false)
   const toggle = () => setOpen(!open)
   return (
     <Container {...containerStyles}>

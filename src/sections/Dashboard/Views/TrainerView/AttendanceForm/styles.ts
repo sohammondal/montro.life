@@ -46,6 +46,7 @@ export const modalCss = css`
     ${hw.full}
     border-radius: 0;
     .contents {
+      overflow: hidden auto;
       button {
         width: 100%;
         align-self: center;
