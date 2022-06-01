@@ -121,6 +121,7 @@ export const AttendanceForm: React.FC<Props> = ({
                 )}
               </From>
               <Button
+                className="submit-button"
                 isLoading={props.isSubmitting}
                 onClick={(e) => {
                   e.preventDefault()

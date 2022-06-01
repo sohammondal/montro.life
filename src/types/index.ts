@@ -52,3 +52,29 @@ export interface IOuterContainer {
   dividerStyles?: CSSProp
   id?: string
 }
+
+export interface Attendance {
+  createdAt: Date
+  timestamp: Date
+  type: string
+  comments: string
+  updatedAt: Date
+  publishedAt: Date
+}
+
+export interface Pagination {
+  page: number
+  pageSize: number
+  pageCount: number
+  total: number
+}
+
+export interface StrapiGETAllResp<T> {
+  data: Array<{
+    id: number
+    attributes: T
+  }>
+  meta: {
+    pagination: Pagination
+  }
+}

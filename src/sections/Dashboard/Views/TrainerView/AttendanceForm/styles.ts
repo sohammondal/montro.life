@@ -35,10 +35,12 @@ export const modalCss = css`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    overflow: hidden auto;
 
-    button {
+    .submit-button {
       width: 50%;
       align-self: center;
+      line-height: 35px;
     }
   }
 
@@ -46,10 +48,12 @@ export const modalCss = css`
     ${hw.full}
     border-radius: 0;
     .contents {
-      overflow: hidden auto;
-      button {
+      padding: 50px 25px;
+      h3 {
+        margin-bottom: 30px;
+      }
+      .submit-button {
         width: 100%;
-        align-self: center;
       }
     }
   }

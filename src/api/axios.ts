@@ -1,7 +1,8 @@
-import axios, { AxiosRequestConfig } from 'axios'
+import axios, { Axios, AxiosPromise, AxiosRequestConfig } from 'axios'
 import qs from 'qs'
 
 import { getJWTFromCookies } from 'helpers/user'
+import { Attendance, StrapiGETAllResp } from 'types'
 
 const heroku = axios.create({
   baseURL: `${process.env.API_BASE_II}/api`,
@@ -40,4 +41,10 @@ export const markAttendance = (payload: Record<string, unknown>) =>
 
 export const getUsers = async (query?: Record<string, unknown>) => {
   return heroku.get(`/users?${qs.stringify(query)}`)
+}
+
+export const getAttendances = (
+  query?: Record<string, unknown>
+): AxiosPromise<StrapiGETAllResp<Attendance>> => {
+  return heroku.get(`/attendances?${qs.stringify(query)}`)
 }

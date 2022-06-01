@@ -46,7 +46,9 @@ export default Dashboard
 
 export const getServerSideProps = async (ctx: NextPageContext) => {
   const cookies = nookies.get(ctx)
-  const user = JSON.parse(cookies.user)
+  const user = JSON.parse(cookies.user || '{}')
+
+  console.log('Fetching cookies from ctx', cookies)
 
   if (!cookies.jwt)
     return {

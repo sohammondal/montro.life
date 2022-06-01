@@ -22,3 +22,7 @@ export const isMobileDevice = (() => {
     return false
   }
 })()
+
+export const hasWindow = (() => {
+  return typeof window !== 'undefined'
+})()

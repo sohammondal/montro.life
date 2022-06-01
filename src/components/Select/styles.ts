@@ -140,6 +140,7 @@ export const Wrapper = styled.div`
 
   .select-search__option:disabled {
     cursor: not-allowed;
+    width: 100%;
   }
 
   /**
