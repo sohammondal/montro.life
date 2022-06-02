@@ -53,6 +53,11 @@ export interface IOuterContainer {
   id?: string
 }
 
+export interface Data<T> {
+  id: number
+  attributes: T
+}
+
 export interface Attendance {
   createdAt: Date
   timestamp: Date
@@ -60,6 +65,9 @@ export interface Attendance {
   comments: string
   updatedAt: Date
   publishedAt: Date
+  trainer: {
+    data: Data<UserInfo>
+  }
 }
 
 export interface Pagination {
@@ -70,10 +78,7 @@ export interface Pagination {
 }
 
 export interface StrapiGETAllResp<T> {
-  data: Array<{
-    id: number
-    attributes: T
-  }>
+  data: Data<T>[]
   meta: {
     pagination: Pagination
   }

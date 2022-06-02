@@ -25,89 +25,103 @@ export const ClientView = () => {
   const { user } = useAppContext()
   const [open, setOpen] = useState(false)
   const toggle = () => setOpen(!open)
+  const [attendances, setAttendances] = useState<Array<Attendance | null>>([])
   const [chartData, setChartData] = useState<ChartData<'doughnut'> | null>(null)
-  const [sessionDetails, setSessionDetails] = useState<SessionDetails>(
-    {} as SessionDetails
-  )
+  const [sessionDetails, setSessionDetails] = useState<SessionDetails>({
+    totalClasses: 0,
+    totalSessions: 0,
+    currentSession: { classesLeft: 0, classesCompleted: 0 },
+  })
 
   React.useEffect(() => {
-    if (!user?.id || open) return
-    ;(async () => {
-      const { data } = await getAttendances({
-        fields: ['timestamp', 'type'],
-        sort: ['createdAt:desc'],
-        filters: {
-          client: {
-            id: {
-              $eq: user.id,
+    try {
+      if (!user?.id || open) return
+      ;(async () => {
+        const { data } = await getAttendances({
+          fields: ['timestamp', 'type'],
+          sort: ['createdAt:desc'],
+          filters: {
+            client: {
+              id: {
+                $eq: user.id,
+              },
             },
           },
-        },
-      })
-
-      const totalClasses = data.meta.pagination.total
-      const totalSessions = Math.floor(totalClasses / 12)
-      const classesCompleted = totalClasses % 12 // classes completed in ongoing session (out of 12 classes)
-      const classesLeft = 12 - classesCompleted // classes left (out of 12 classes) in ongoing session
-
-      const attendances = [...data.data].splice(0, classesCompleted)
-
-      const records: Array<Attendance | null> = [
-        ...attendances.map((attendance) => attendance.attributes),
-        ...Array(classesLeft).fill(null),
-      ]
-
-      const doughnutData: ChartData<'doughnut'> = {
-        labels: [],
-        datasets: [
-          {
-            label: 'Attendance tracker',
-            data: [],
-            backgroundColor: [],
-            borderColor: [],
-            borderWidth: 1,
-            hoverBorderWidth: 2,
-            hoverBorderColor: [],
+          populate: {
+            trainer: {
+              fields: ['name'],
+            },
           },
-        ],
-      }
+        })
 
-      records.forEach((record, index) => {
+        const totalClasses = data.meta.pagination.total
+        const totalSessions = Math.floor(totalClasses / 12)
+        const classesCompleted = totalClasses % 12 // classes completed in ongoing session (out of 12 classes)
+        const classesLeft = 12 - classesCompleted // classes left (out of 12 classes) in ongoing session
+
+        const attendances = [...data.data].splice(0, classesCompleted)
+
+        const records: Array<Attendance | null> = [
+          ...attendances.map((attendance) => attendance.attributes),
+          ...Array(classesLeft).fill(null),
+        ]
+
+        const doughnutData: ChartData<'doughnut'> = {
+          labels: [],
+          datasets: [
+            {
+              label: 'Attendance tracker',
+              data: [],
+              backgroundColor: [],
+              borderColor: [],
+              borderWidth: 1,
+              hoverBorderWidth: 2,
+              hoverBorderColor: [],
+            },
+          ],
+        }
+
         const bgColor = doughnutData.datasets[0]?.backgroundColor as string[]
         const borderColor = doughnutData.datasets[0]?.borderColor as string[]
         const hoverBorderColor = doughnutData.datasets[0]
           ?.hoverBorderColor as string[]
-        if (record) {
-          doughnutData.labels?.push(
-            new Date(record.timestamp).toLocaleString('en-IN', {
-              timeZone: 'Asia/Kolkata',
-            })
-          )
-          doughnutData.datasets[0].data.push(25)
-          bgColor.push(bgColors[(index + 1) % bgColors.length])
-          borderColor?.push(borderColors[(index + 1) % borderColors.length])
-          hoverBorderColor?.push(
-            borderColors[(index + 1) % borderColors.length]
-          )
-        } else {
-          doughnutData.labels?.push('Yet to attend')
-          doughnutData.datasets[0].data.push(25)
-          bgColor.push('transparent')
-          borderColor?.push('rgb(201, 203, 207)')
-          hoverBorderColor?.push('rgb(201, 203, 207)')
-        }
-      })
 
-      setChartData(doughnutData)
-      setSessionDetails({
-        totalClasses,
-        totalSessions,
-        currentSession: {
-          classesLeft,
-          classesCompleted,
-        },
-      })
-    })()
+        records.forEach((record, index) => {
+          if (record) {
+            doughnutData.labels?.push(
+              new Date(record.timestamp).toLocaleString('en-IN', {
+                timeZone: 'Asia/Kolkata',
+              })
+            )
+            doughnutData.datasets[0].data.push(25)
+            bgColor.push(bgColors[(index + 1) % bgColors.length])
+            borderColor?.push(borderColors[(index + 1) % borderColors.length])
+            hoverBorderColor?.push(
+              borderColors[(index + 1) % borderColors.length]
+            )
+          } else {
+            doughnutData.labels?.push('Yet to attend')
+            doughnutData.datasets[0].data.push(25)
+            bgColor.push('transparent')
+            borderColor?.push('rgb(201, 203, 207)')
+            hoverBorderColor?.push('rgb(201, 203, 207)')
+          }
+        })
+
+        setAttendances(records)
+        setChartData(doughnutData)
+        setSessionDetails({
+          totalClasses,
+          totalSessions,
+          currentSession: {
+            classesLeft,
+            classesCompleted,
+          },
+        })
+      })()
+    } catch (error) {
+      console.log(error)
+    }
   }, [user?.id, open])
 
   return (
@@ -119,6 +133,35 @@ export const ClientView = () => {
             data={chartData}
             options={{
               maintainAspectRatio: true,
+              plugins: {
+                tooltip: {
+                  callbacks: {
+                    title: (tooltipItem) => {
+                      return tooltipItem[0].label === 'Yet to attend'
+                        ? ''
+                        : 'Attendance Details'
+                    },
+                    label: (tooltipItem) => {
+                      if (tooltipItem.label === 'Yet to attend')
+                        return tooltipItem.label
+                      return `Date - ${tooltipItem.label}`
+                    },
+                    // beforeLabel: () => 'beforeLabel',
+                    // afterLabel: () => 'afterLabel',
+                    afterBody: (tooltipItem) => {
+                      console.log(tooltipItem[0])
+                      const index = tooltipItem[0].dataIndex
+                      const trainer =
+                        attendances[index]?.trainer.data.attributes.name
+                      if (trainer)
+                        return `Trainer - ${attendances[index]?.trainer.data.attributes.name}`
+                      return ''
+                    },
+                  },
+                  boxPadding: 20,
+                  displayColors: false,
+                },
+              },
             }}
           />
         )}

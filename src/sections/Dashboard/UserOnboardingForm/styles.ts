@@ -10,7 +10,11 @@ export const Form = styled.form`
   }
 
   .input-wrapper {
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+    .error-label {
+      height: unset;
+      min-height: 10px;
+    }
   }
 
   input {
@@ -26,7 +30,7 @@ export const modalCss = css`
   height: max-content;
 
   .contents {
-    padding: 30px;
+    padding: 30px !important;
     ${flexColCenter}
   }
 
@@ -46,5 +50,8 @@ export const modalCss = css`
   ${media.desktop} {
     width: 35%;
     height: 40%;
+    .contents {
+      padding: 50px;
+    }
   }
 `

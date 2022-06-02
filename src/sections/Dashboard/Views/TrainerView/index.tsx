@@ -16,42 +16,47 @@ import { scannerBtnCss, manualBtnCss, ManualBox } from './styles'
 import { containerStyles, btnCss, Separator } from '../styles'
 
 const getClients = async (query: string) => {
-  const { data: users } = await getUsers({
-    filters: {
-      $or: [
-        {
-          username: {
-            $containsi: query,
+  try {
+    const { data: users } = await getUsers({
+      filters: {
+        $or: [
+          {
+            username: {
+              $containsi: query,
+            },
           },
-        },
-        {
-          name: {
-            $containsi: query,
+          {
+            name: {
+              $containsi: query,
+            },
           },
-        },
-        {
-          email: {
-            $containsi: query,
+          {
+            email: {
+              $containsi: query,
+            },
           },
-        },
-        {
-          phone: {
-            $containsi: query,
+          {
+            phone: {
+              $containsi: query,
+            },
           },
-        },
-      ],
-      role: {
-        type: {
-          $eq: 'client',
+        ],
+        role: {
+          type: {
+            $eq: 'client',
+          },
         },
       },
-    },
-  })
+    })
 
-  return users.map((user: UserInfo) => ({
-    name: `${user.name} (${user.phone})`,
-    value: JSON.stringify(user),
-  }))
+    return users.map((user: UserInfo) => ({
+      name: `${user.name} (${user.phone})`,
+      value: JSON.stringify(user),
+    }))
+  } catch (error) {
+    console.log(error)
+    return []
+  }
 }
 
 export const TrainerView = () => {

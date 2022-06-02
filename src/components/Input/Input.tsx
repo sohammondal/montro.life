@@ -18,11 +18,11 @@ export const Input: React.FC<Props> = ({
 }) => {
   return (
     <Wrapper className="input-wrapper">
-      <Body bold css={labelCss}>
+      <Body bold css={labelCss} className="label">
         {label}
       </Body>
       <StyledInput {...props} />
-      <Body variant="sm" bold css={errorCss}>
+      <Body variant="sm" bold css={errorCss} className="error-label">
         {error && errorMessage}
       </Body>
     </Wrapper>

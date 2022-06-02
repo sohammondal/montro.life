@@ -35,7 +35,6 @@ export const modalCss = css`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    overflow: hidden auto;
 
     .submit-button {
       width: 50%;
@@ -45,12 +44,17 @@ export const modalCss = css`
   }
 
   ${media.custom(768, 'max')} {
-    ${hw.full}
-    border-radius: 0;
+    width: 100% !important;
+    height: 85% !important;
+    border-radius: 0 !important;
     .contents {
-      padding: 50px 25px;
+      padding: 50px 30px !important;
+
       h3 {
-        margin-bottom: 30px;
+        margin-bottom: 20px;
+      }
+      form {
+        overflow: scroll;
       }
       .submit-button {
         width: 100%;
