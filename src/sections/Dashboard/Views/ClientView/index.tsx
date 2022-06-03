@@ -13,7 +13,12 @@ import { H4 } from 'components/Typography'
 import { useAppContext } from 'context'
 import { Attendance } from 'types'
 
-import { bgColors, borderColors, SessionDetails } from './config'
+import {
+  bgColors,
+  borderColors,
+  initialChartData,
+  SessionDetails,
+} from './config'
 import { SessionDetailsBox } from './SessionDetailsBox'
 import { qrCodeBtnCss, containerStyles, ChartWrapper } from './styles'
 
@@ -26,7 +31,8 @@ export const ClientView = () => {
   const [open, setOpen] = useState(false)
   const toggle = () => setOpen(!open)
   const [attendances, setAttendances] = useState<Array<Attendance | null>>([])
-  const [chartData, setChartData] = useState<ChartData<'doughnut'> | null>(null)
+  const [chartData, setChartData] =
+    useState<ChartData<'doughnut'>>(initialChartData)
   const [sessionDetails, setSessionDetails] = useState<SessionDetails>({
     totalClasses: 0,
     totalSessions: 0,
@@ -38,7 +44,7 @@ export const ClientView = () => {
       if (!user?.id || open) return
       ;(async () => {
         const { data } = await getAttendances({
-          fields: ['timestamp', 'type'],
+          fields: ['timestamp', 'type', 'comments'],
           sort: ['createdAt:desc'],
           filters: {
             client: {
@@ -62,7 +68,7 @@ export const ClientView = () => {
         const attendances = [...data.data].splice(0, classesCompleted)
 
         const records: Array<Attendance | null> = [
-          ...attendances.map((attendance) => attendance.attributes),
+          ...attendances.map((attendance) => attendance.attributes).reverse(),
           ...Array(classesLeft).fill(null),
         ]
 
@@ -128,43 +134,51 @@ export const ClientView = () => {
     <Container {...containerStyles}>
       <SessionDetailsBox sessionDetails={sessionDetails} />
       <ChartWrapper>
-        {chartData && (
-          <Doughnut
-            data={chartData}
-            options={{
-              maintainAspectRatio: true,
-              plugins: {
-                tooltip: {
-                  callbacks: {
-                    title: (tooltipItem) => {
-                      return tooltipItem[0].label === 'Yet to attend'
-                        ? ''
-                        : 'Attendance Details'
-                    },
-                    label: (tooltipItem) => {
-                      if (tooltipItem.label === 'Yet to attend')
-                        return tooltipItem.label
-                      return `Date - ${tooltipItem.label}`
-                    },
-                    // beforeLabel: () => 'beforeLabel',
-                    // afterLabel: () => 'afterLabel',
-                    afterBody: (tooltipItem) => {
-                      console.log(tooltipItem[0])
-                      const index = tooltipItem[0].dataIndex
-                      const trainer =
-                        attendances[index]?.trainer.data.attributes.name
-                      if (trainer)
-                        return `Trainer - ${attendances[index]?.trainer.data.attributes.name}`
-                      return ''
-                    },
+        <Doughnut
+          data={chartData}
+          options={{
+            maintainAspectRatio: true,
+            plugins: {
+              tooltip: {
+                callbacks: {
+                  title: (tooltipItem) => {
+                    return tooltipItem[0].label === 'Yet to attend'
+                      ? ''
+                      : 'Attendance Details'
                   },
-                  boxPadding: 20,
-                  displayColors: false,
+                  label: (tooltipItem) => {
+                    /* attendance.type */
+                    if (tooltipItem.label === 'Yet to attend') return ''
+                    return `Class - ${attendances[tooltipItem.dataIndex]?.type}`
+                  },
+                  afterLabel: (tooltipItem) => {
+                    /* attendance.comments */
+                    const index = tooltipItem.dataIndex
+                    const comments = attendances[index]?.comments
+                    return comments ? `Reason - ${comments}` : ''
+                  },
+                  beforeBody: (tooltipItem) => {
+                    /* attendance.timestamp */
+                    const label = tooltipItem[0].label
+                    if (label === 'Yet to attend') return label
+                    return `Date - ${label}`
+                  },
+                  afterBody: (tooltipItem) => {
+                    /* attendance.trainer.name */
+                    const index = tooltipItem[0].dataIndex
+                    const trainer =
+                      attendances[index]?.trainer.data.attributes.name
+                    if (trainer)
+                      return `Trainer - ${attendances[index]?.trainer.data.attributes.name}`
+                    return ''
+                  },
                 },
+                boxPadding: 20,
+                displayColors: false,
               },
-            }}
-          />
-        )}
+            },
+          }}
+        />
       </ChartWrapper>
       <Button css={[btnCss, qrCodeBtnCss]} onClick={toggle}>
         <MdOutlineQrCode className="qr-icon" />

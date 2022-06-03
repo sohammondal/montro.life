@@ -39,10 +39,10 @@ export const AttendanceForm: React.FC<Props> = ({
               return
             }
             await markAttendance({
-              client_id: values.id,
-              trainer_id: trainer?.id,
+              client: values.id,
+              trainer: trainer?.id,
               type: values.type,
-              timestamp: values.timestamp,
+              timestamp: new Date(values.timestamp).toISOString(),
               comments: values.comments,
             })
             toast?.success('Attendance Saved')

@@ -1,3 +1,5 @@
+import { ChartData } from 'chart.js'
+
 export const borderColors = [
   'rgb(255, 99, 132)',
   'rgb(255, 159, 64)',
@@ -23,4 +25,19 @@ export interface SessionDetails {
     classesLeft: number
     classesCompleted: number
   }
+}
+
+export const initialChartData: ChartData<'doughnut'> = {
+  labels: Array(12).fill('Yet to attend'),
+  datasets: [
+    {
+      label: 'Attendance tracker',
+      data: Array(12).fill(25),
+      backgroundColor: Array(12).fill('transparent'),
+      borderColor: Array(12).fill('rgb(201, 203, 207)'),
+      borderWidth: 1,
+      hoverBorderWidth: 2,
+      hoverBorderColor: Array(12).fill('rgb(201, 203, 207)'),
+    },
+  ],
 }
