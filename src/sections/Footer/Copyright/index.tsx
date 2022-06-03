@@ -17,7 +17,7 @@ export const Copyright = () => {
       <div>
         <small>Designed & Developed by </small>
         <a href="https://sohammondal.com" target="_blank" rel="noreferrer">
-          <strong>Soham Mondal</strong>
+          Soham Mondal
         </a>
       </div>
     </Wrapper>

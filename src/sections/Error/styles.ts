@@ -42,7 +42,6 @@ export const Content = styled.div`
 
   ${media.tabletPortrait} {
     ${display.block}
-    margin-left: ${(props) => props.theme.spacings['44']};
   }
 `
 
@@ -65,4 +64,17 @@ export const AnchorButton = styled.a`
   width: max-content;
   ${flexRowCenter}
   ${buttonStyles}
+`
+
+export const OrientationErrorWrapper = styled.div`
+  visibility: hidden;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  z-index: 99;
+
+  h1,
+  p {
+    text-align: center;
+  }
 `

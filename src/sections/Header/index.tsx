@@ -11,26 +11,26 @@ import { IOuterContainer } from 'types'
 
 import { LogoWrapper, Nav, containerStyles } from './styles'
 
-const HomeNavBar = () => {
-  const navLinks = [
-    {
-      title: 'About Yoga',
-      href: `#${sectionIds.aboutYoga}`,
-    },
-    {
-      title: 'Testimonials',
-      href: `#${sectionIds.testimonials}`,
-    },
-    {
-      title: 'Trainers',
-      href: `#${sectionIds.aboutAindrilla}`,
-    },
-    {
-      title: 'Contact Us',
-      href: `#${sectionIds.contactForm}`,
-    },
-  ]
+const navLinks = [
+  {
+    title: 'About Yoga',
+    href: `#${sectionIds.aboutYoga}`,
+  },
+  {
+    title: 'Testimonials',
+    href: `#${sectionIds.testimonials}`,
+  },
+  {
+    title: 'Trainers',
+    href: `#${sectionIds.aboutAindrilla}`,
+  },
+  {
+    title: 'Contact Us',
+    href: `#${sectionIds.contactForm}`,
+  },
+]
 
+const HomeNavBar = () => {
   const [menuItems, setMenuItems] = useState(navLinks)
   const { user } = useAppContext()
 
@@ -45,7 +45,7 @@ const HomeNavBar = () => {
           href: `${process.env.API_BASE_II}/api/connect/google`,
         }
 
-    setMenuItems((menuItems) => [...menuItems, lastMenuItem])
+    setMenuItems([...navLinks, lastMenuItem])
   }, [user])
 
   return (

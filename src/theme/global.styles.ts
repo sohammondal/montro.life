@@ -2,8 +2,7 @@ import { createGlobalStyle } from 'styled-components'
 
 import { colors } from './colors'
 
-export const GlobalStyles = createGlobalStyle`
-
+export const fontSetup = `
     @font-face {
         font-family: Afterglow;
         src: url('/fonts/Afterglow-Regular.woff2') format('woff2');
@@ -19,14 +18,21 @@ export const GlobalStyles = createGlobalStyle`
         src: url('/fonts/Poppins-Regular.woff2') format('woff2');
     }
 
+    html,
+    body {
+    font-family: Poppins, EllianaSamantha, Afterglow, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+        Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    }
+
+`
+
+export const GlobalStyles = createGlobalStyle`
     :root{}
 
     html,
     body {
     padding: 0;
     margin: 0;
-    font-family: Poppins, EllianaSamantha, Afterglow, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-        Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
     scroll-behavior: smooth;
     background-color: ${colors.BridalHealth};
     }
@@ -35,7 +41,7 @@ export const GlobalStyles = createGlobalStyle`
         color: inherit;
         text-decoration: none;
         transition: all ease 0.2s;
-        font-weight: 600;
+        font-weight: 500;
         position: relative;
 
         ::before {
@@ -63,20 +69,17 @@ export const GlobalStyles = createGlobalStyle`
 
     /* (A) ALL ORIENTATION - SHOW CONTENT HIDE MESSAGE (TAB AND ABOVE) */
     @media only screen and (min-width: 768px) {
-        #orientation-error { display:none; }
-        #app { display:block; }
+        #orientation-error { visibility:hidden; }
     }
 
     /* (B) WRONG ORIENTATION - SHOW MESSAGE HIDE CONTENT (MOBILE) */
     @media only screen and (max-width: 960px) and (orientation:landscape) {
-        #orientation-error { display:block; }
-        #app { display:none; }
+        #orientation-error { visibility:visible; }
     }
     
     /* (C) CORRECT ORIENTATION - SHOW CONTENT HIDE MESSAGE (MOBILE) */
     @media only screen and (max-width: 960px) and (orientation:portrait) {
-        #orientation-error { display:none; }
-        #app { display:block; }
+        #orientation-error { visibility:hidden; }
     }
 
     b, strong {

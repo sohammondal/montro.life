@@ -9,6 +9,7 @@ import {
   Content,
   ErrorCode,
   imageStyles,
+  OrientationErrorWrapper,
 } from './styles'
 
 interface Props {
@@ -51,14 +52,14 @@ export const ErrorPage: React.FC<Props> = (props) => {
 
 export const OrientationError = () => {
   return (
-    <div id="orientation-error">
+    <OrientationErrorWrapper id="orientation-error">
       <ErrorPage
         message="Please rotate your device!"
         showCta={false}
         imgSrc=""
-        code={'📱 🔄'}
+        code={'🔄'}
       />
-    </div>
+    </OrientationErrorWrapper>
   )
 }
 

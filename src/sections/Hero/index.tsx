@@ -33,7 +33,6 @@ export const Hero: React.FC<Props> = (props) => {
           src={'/images/yoga-pose-hero.png'}
           objectFit="contain"
           layout="intrinsic"
-          loading="eager"
           priority
           alt="Aindrilla Das doing One legged King Pigeon pose (Eka pada rajakopatasana)"
           title="Aindrilla Das doing One legged King Pigeon pose (Eka pada rajakopatasana)"
