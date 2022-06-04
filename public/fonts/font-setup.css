@@ -1,0 +1,21 @@
+@font-face {
+  font-family: Afterglow;
+  src: url('./fonts/Afterglow-Regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: EllianaSamantha;
+  src: url('./fonts/elliana-samantha.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: Poppins;
+  src: url('./fonts/Poppins-Regular.woff2') format('woff2');
+}
+
+html,
+body {
+  font-family: Poppins, EllianaSamantha, Afterglow, -apple-system,
+    BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans,
+    Droid Sans, Helvetica Neue, sans-serif;
+}

@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-css-tags */
 import Document, {
   Html,
   Head,
@@ -10,7 +11,6 @@ import React from 'react'
 import { ServerStyleSheet } from 'styled-components'
 
 import { config } from 'config'
-import { fontSetup } from 'theme/global.styles'
 
 const fonts = [
   'Afterglow-Regular.woff2',
@@ -67,7 +67,7 @@ export default class MyDocument extends Document {
               href={`/fonts/${font}`}
             />
           ))}
-          <style>{fontSetup}</style>
+          <link rel="stylesheet" href="/fonts/font-setup.css" />
           <link rel="preload" as="image" href="/images/yoga-pose-hero.png" />
         </Head>
         <body>
